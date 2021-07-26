@@ -8,6 +8,9 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const csrf = require('csurf');
+const csrfProtection = csrf({cookie:true})
+
 
 const app = express();
 

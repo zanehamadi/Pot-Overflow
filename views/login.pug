@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1= title
+    form(method="post" action="/login")
+        //- input(type="hidden" name="_csrf" value=csrfToken)
+        label(for="username") Username  
+        input(type="text" name="username" required)
+        label(for="password") Password 
+        input(type="password" name="password" required)
+    button Log In
+  
