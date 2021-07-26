@@ -13,7 +13,7 @@ module.exports = {
       }], {});
     */
     return queryInterface.bulkInsert('Questions', [
-
+      { question: 'My oven is cold', additional_info: "Won't turn on automatically", userId: 1, createdAt: new Date(), updatedAt: new Date() }
     ], {});
   },
 

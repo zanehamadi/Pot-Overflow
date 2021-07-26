@@ -13,7 +13,7 @@ module.exports = {
       }], {});
     */
     return queryInterface.bulkInsert('Downvotes', [
-
+      { userId: 2, questionId: 1, answerId: 1, createdAt: new Date(), updatedAt: new Date() }
     ], {});
   },
 

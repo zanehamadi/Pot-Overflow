@@ -19,7 +19,6 @@ module.exports = {
         references: { model: 'Questions' }
       },
       answerId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
         references: { model: 'Answers' }
       },
