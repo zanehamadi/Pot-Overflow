@@ -1,10 +1,15 @@
 const express = require('express');
-const router = express.Router();
-const { asyncHandler, handleValidationErrors } = require('./util');
-const csrf = require('csurf');
-const csrfProtection = csrf({cookie:true});
-const db = require('../db/models');
 const bcrypt = require('bcryptjs')
+const csrf = require('csurf');
+const db = require('../db/models');
+
+const { check } = require('express-validator');
+const { asyncHandler, handleValidationErrors } = require('./util');
+const { loginUser, logoutUser } = require('../auth');
+
+
+const router = express.Router();
+const csrfProtection = csrf({cookie:true});
 
 const validateUserRegister = [
   check("email")
@@ -66,44 +71,37 @@ router.get('/login', (req,res,next) => {
 
 router.post('login', csrfProtection, validateUserLogin, handleValidationErrors, asyncHandler(async(req,res,next) => {
   const {username, password} = req.body;
-  const user = await db.User.findOne({
-    where: username
-  });
 
-  if(!user){
-    const err = new Error("Login failed");
-    err.status = 401;
-    err.title = "Login failed";
-    err.errors = ["The username was not found."];
-    return next(err)
-  };
-  
-  const passwordChecker = await bcrypt.compare(password, user.hashedPassword)
+  let errors = [];
+  const validatorErrors = validationResult(req);
 
-  if(passwordChecker){
-    loginUser(req,res,user)
-    res.redirect('/')
-    return
-  }
+  // if(validatorErrors.length === 0) {
+  //   const user = await db.User.findOne({
+  //     where: username
+  //   })
 
-  else{
-    const err = new Error("Login failed");
-    err.status = 401;
-    err.title = "Login failed";
-    err.errors = ["Credentials were invalid"]
-    return next()
-  };
-  
+  //   if(user !== null) {
+  //     const passwordCheck = await bcrypt.compare(password, user.hashedPassword.toString());
+
+  //     if(passwordCheck) {
+  //       loginUser(req, res, user);
+  //       res.redirect('/');
+  //       return;
+  //     }
+  //   }
+
+  //   errors.push('Login credentials were invalid');
+  // } else {
+  //     errors = validatorErrors.array().map((error) => error.msg);
+  //     res.render('user-login', {
+  //       username,
+  //       errors,
+  //       csrfToken: req.csrfToken()
+  //     })
+  //   }
+  res.render('user-login')
 }))
 
 
 
-/* if (!user || !user.validatePassword(password)) {
-  const err = new Error("Login failed");
-  err.status = 401;
-  err.title = "Login failed";
-  err.errors = ["The provided credentials were invalid."];
-  return next(err);
-}
-*/
 module.exports = router;
