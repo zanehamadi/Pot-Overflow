@@ -9,6 +9,19 @@ const { asyncHandler, handleValidationErrors } = require('./util');
 const router = express.Router();
 const csrfProtection = csrf({ cookie: true })
 
+
+// Render questions route(displays questions)
+
+router.get('/', asyncHandler(async (req,res,next) => {
+    const questions = await Question.findAll({
+        include: User
+    })
+
+    res.render('questions', {questions})
+}))
+
+
+
 router.get('/ask', csrfProtection, requireAuth, handleValidationErrors, (req, res) => {
     res.render('ask', {
         csrfToken: req.csrfToken()
