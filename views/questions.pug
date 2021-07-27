@@ -10,5 +10,5 @@ block content
 
             each question in questions
                 tr
-                    td= question.question
+                    td: a(href=`/questions/${question.id}`)= question.question
                     td= question.User.username
