@@ -22,8 +22,27 @@ router.get('/', asyncHandler(async (req,res,next) => {
 
 
 
+router.get('/ask', csrfProtection, requireAuth, handleValidationErrors, (req, res) => {
+    res.render('ask', {
+        csrfToken: req.csrfToken()
+    });
+});
 
+router.post('/ask', csrfProtection, requireAuth, handleValidationErrors, asyncHandler(async (req, res) => {
+    const { question, additional_info } = req.body;
+    const { userId } = req.session.auth;
 
+    if (userId) {
+        const newQuestion = await Question.create({
+            question,
+            additional_info,
+            userId
+        })
 
+        res.redirect('/questions/')
+    } else {
+        res.redirect('login');
+    }
+}))
 
 module.exports = router;
