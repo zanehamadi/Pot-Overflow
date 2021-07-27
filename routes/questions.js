@@ -26,14 +26,18 @@ router.get('/', asyncHandler(async (req,res,next) => {
 router.get('/:id(\\d+)', asyncHandler(async (req,res) => {
 
     const questionId = parseInt(req.params.id, 10);
-    console.log(questionId)
     const question = await Question.findByPk(questionId, {
-        include: User
+        include: [ User, Answer, Upvote, Downvote ]
     })
 
-    res.render('question', {question})
+    const answers = await Answer.findAll({
+        where: questionId,
+        include: [ User, Upvote, Downvote ]
+    })
 
-}))
+    res.render('question', { question, answers })
+}));
+
 
 
 
@@ -60,6 +64,19 @@ router.post('/ask', csrfProtection, requireAuth, handleValidationErrors, asyncHa
     }
 }))
 
+router.get('/answers/:id/upvotes', asyncHandler(async (req, res) => {
+    const answerId = req.params.id;
+
+    const upvotes = await Upvote.findAll({
+        where: answerId
+    })
+
+    const downvotes = await Downvote.findAll({
+        where: answerId
+    })
+
+    return res.json({ upvotes, downvotes })
+}));
 
 
 module.exports = router;
