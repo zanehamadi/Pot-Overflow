@@ -1,0 +1,18 @@
+extends layout.pug
+
+block content
+    table
+        thead
+            th Question
+            th Additional Info
+            th User
+            th Posted On
+        
+        tbody
+
+             tr
+                td=question.question
+                td=question.additional_info
+                td=question.User.username
+                td=question.createdAt
+

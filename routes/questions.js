@@ -21,6 +21,21 @@ router.get('/', asyncHandler(async (req,res,next) => {
 }))
 
 
+// Render specific question
+
+router.get('/:id(\\d+)', asyncHandler(async (req,res) => {
+
+    const questionId = parseInt(req.params.id, 10);
+    console.log(questionId)
+    const question = await Question.findByPk(questionId, {
+        include: User
+    })
+
+    res.render('question', {question})
+
+}))
+
+
 
 router.get('/ask', csrfProtection, requireAuth, handleValidationErrors, (req, res) => {
     res.render('ask', {
@@ -44,5 +59,7 @@ router.post('/ask', csrfProtection, requireAuth, handleValidationErrors, asyncHa
         res.redirect('login');
     }
 }))
+
+
 
 module.exports = router;
