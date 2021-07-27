@@ -148,8 +148,8 @@ router.post('/register', csrfProtection, validateUserRegister, asyncHandler(asyn
 /* Log out */
 router.post('/logout', (req, res) => {
   logoutUser(req, res);
-  
-  (res.redirect('/'), res.render('index'))
+
+  res.redirect('/')
 });
 
 module.exports = router;

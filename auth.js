@@ -10,13 +10,12 @@ const loginUser = (req, res, user) => {
 //log out a user
 const logoutUser = (req, res) => {
   delete req.session.auth;
-  
 }
 
-//require authentication
+//require authentication, checks user is logged in
 const requireAuth = (req, res, next) => {
   if(!res.locals.authenticated) {
-    return res.redirect('/user/login');
+    return res.redirect('/login');
   }
   return next();
 }
