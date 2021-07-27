@@ -2,11 +2,16 @@ extends layout
 
 block content
     h1= title
+    if errors
+        div(class='alert alert-danger' role='alert')
+            p The following error(s) occurred:
+            ul
+                each error in errors
+                    li= error
     form(method="post" action="/login")
-        //- input(type="hidden" name="_csrf" value=csrfToken)
-        label(for="username") Username  
+        input(type="hidden" name="_csrf" value=csrfToken)
+        label(for="username") Username
         input(type="text" name="username" required)
-        label(for="password") Password 
+        label(for="password") Password
         input(type="password" name="password" required)
-    button Log In
-  
+        button(id="authenticate") Log In
