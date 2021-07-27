@@ -8,13 +8,14 @@ block content
     //-             ul
     //-                 each error in errors
     //-                     li= error
-    form.ask-form(action="/questions/ask" method="POST")
-        input(type="hidden" name="_csrf" value=csrfToken)
+    if(locals.authenticated)
+        form.ask-form(action="/questions/ask" method="POST")
+            input(type="hidden" name="_csrf" value=csrfToken)
 
-        label(for="question") What do you need help with?
-        input(type="text" name="question" required)
+            label(for="question") What do you need help with?
+            input(type="text" name="question" required)
 
-        label(for="additional_info") Additional info
-        input(type="text" name="additional_info")
+            label(for="additional_info") Additional info
+            input(type="text" name="additional_info")
 
-        button Ask
+            button Ask
