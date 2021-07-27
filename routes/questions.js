@@ -39,7 +39,7 @@ router.post('/ask', csrfProtection, requireAuth, handleValidationErrors, asyncHa
             userId
         })
 
-        res.redirect('question', { newQuestion })
+        res.redirect('/questions/')
     } else {
         res.redirect('login');
     }
