@@ -26,7 +26,7 @@ router.get('/', asyncHandler(async (req,res,next) => {
 router.get('/:id(\\d+)', asyncHandler(async (req,res) => {
 
     const questionId = parseInt(req.params.id, 10);
-    console.log(questionId)
+
     const question = await Question.findByPk(questionId, {
         include: User
     })
