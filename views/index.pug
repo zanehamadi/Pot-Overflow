@@ -9,6 +9,10 @@ append head
 block content
   h1= title
   p Welcome to your Project Skeleton
-  button(id="loginButton"): a(href="/login") Log in
-  button(id="registerButton"): a(href="/login") Register 
-  button(id="demoButton"): a(href="/") Demo
+  if locals.authenticated
+      form(action="/logout" method="post")
+        button(id="logoutbutton") Log out
+  else
+      button(id="loginButton"): a(href="/login") Log in
+      button(id="registerButton"): a(href="/register") Register 
+      button(id="demoButton"): a(href="/") Demo

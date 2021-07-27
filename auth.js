@@ -10,6 +10,7 @@ const loginUser = (req, res, user) => {
 //log out a user
 const logoutUser = (req, res) => {
   delete req.session.auth;
+  
 }
 
 //require authentication

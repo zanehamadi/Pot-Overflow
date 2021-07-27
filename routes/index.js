@@ -3,13 +3,12 @@ const bcrypt = require('bcryptjs')
 const csrf = require('csurf');
 const db = require('../db/models');
 
-const { check } = require('express-validator');
+const { check, validationResult } = require('express-validator');
 const { asyncHandler, handleValidationErrors } = require('./util');
 const { loginUser, logoutUser } = require('../auth');
 
-
 const router = express.Router();
-const csrfProtection = csrf({cookie:true});
+const csrfProtection = csrf({ cookie: true });
 
 const validateUserRegister = [
   check("email")
@@ -25,10 +24,21 @@ const validateUserRegister = [
         });
     }),
 
-  check("password")
+  check('password')
     .exists({ checkFalsy: true })
+    .withMessage('Please provide a value for Password')
     .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, 'g')
-    .withMessage("Please provide a password."),
+    .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")'),
+
+  check('confirm-password')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a value for Confirm Password')
+    .custom((value, { req }) => {
+      if (value !== req.body.password) {
+        throw new Error('Confirm Password does not match Password');
+      }
+      return true;
+    }),
 
   check("username")
     .exists({ checkFalsy: true })
@@ -53,55 +63,93 @@ const validateUserLogin = [
 ];
 
 
-
-
-
-/* GET home page. */
+/* Log in */
 router.get('/', (req, res, next) => {
   res.render('index', { title: 'a/A Express Skeleton Home' });
 });
 
 
+router.get('/login', csrfProtection, (req, res, next) => {
+  res.render('login', {
+    csrfToken: req.csrfToken(),
+  })
+})
 
-router.get('/login', (req,res,next) => {
-  res.render('login')
-});
 
-
-
-router.post('login', csrfProtection, validateUserLogin, handleValidationErrors, asyncHandler(async(req,res,next) => {
-  const {username, password} = req.body;
+router.post('/login', csrfProtection, validateUserLogin, asyncHandler(async (req, res, next) => {
+  const { username, password } = req.body;
 
   let errors = [];
   const validatorErrors = validationResult(req);
 
-  // if(validatorErrors.length === 0) {
-  //   const user = await db.User.findOne({
-  //     where: username
-  //   })
+  if (validatorErrors.errors.length === 0) {
 
-  //   if(user !== null) {
-  //     const passwordCheck = await bcrypt.compare(password, user.hashedPassword.toString());
+    const user = await db.User.findOne({
+      where: { username }
+    })
 
-  //     if(passwordCheck) {
-  //       loginUser(req, res, user);
-  //       res.redirect('/');
-  //       return;
-  //     }
-  //   }
+    if (user !== null) {
 
-  //   errors.push('Login credentials were invalid');
-  // } else {
-  //     errors = validatorErrors.array().map((error) => error.msg);
-  //     res.render('user-login', {
-  //       username,
-  //       errors,
-  //       csrfToken: req.csrfToken()
-  //     })
-  //   }
-  res.render('user-login')
+      const passwordCheck = await bcrypt.compare(password, user.hashedPassword.toString());
+
+      if (passwordCheck) {
+        loginUser(req, res, user);
+        res.redirect('/');
+        return;
+      }
+    }
+
+    errors.push('Login credentials were invalid');
+  } else {
+    errors = validatorErrors.array().map((error) => error.msg);
+  }
+
+  res.render('login', {
+    username,
+    errors,
+    csrfToken: req.csrfToken()
+  })
 }))
 
+/* Register */
+router.get('/register', csrfProtection, (req, res) => {
+  const user = db.User.build();
+  res.render('register', {
+    user,
+    csrfToken: req.csrfToken()
+  })
+})
 
+router.post('/register', csrfProtection, validateUserRegister, asyncHandler(async (req, res) => {
+  const { email, username, password } = req.body;
+  const user = db.User.build({
+    email, username
+  })
+
+  const validatorErrors = validationResult(req);
+
+  if (validatorErrors.isEmpty()) {
+    const hashedPassword = await bcrypt.hash(password, 12);
+    user.hashedPassword = hashedPassword;
+    await user.save();
+    loginUser(req, res, user);
+    res.redirect('/');
+  } else {
+    console.log('here')
+    const errors = validatorErrors.array().map((error) => error.msg);
+    res.render('register', {
+      user,
+      errors,
+      csrfToken: req.csrfToken(),
+    });
+  }
+}));
+
+/* Log out */
+router.post('/logout', (req, res) => {
+  logoutUser(req, res);
+  
+  (res.redirect('/'), res.render('index'))
+});
 
 module.exports = router;
