@@ -1,6 +1,6 @@
 const express = require('express');
 const csrf = require('csurf');
-const { Op } = require('Sequelize');
+const { Op } = require('sequelize');
 
 const { Question, Answer, User, Upvote, Downvote } = require('../db/models');
 const { requireAuth } = require('../auth');
@@ -41,7 +41,9 @@ router.post('/', asyncHandler(async (req, res, next) => {
                 question: {
                     [Op.substring]: words[i]
                 }
-            }
+            },
+            include: User
+            
         })
 
         if (questions[0] && !idArray.includes(questions[0].id)) {
