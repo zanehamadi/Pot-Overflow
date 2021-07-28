@@ -149,7 +149,7 @@ router.post('/register', csrfProtection, validateUserRegister, asyncHandler(asyn
 router.post('/logout', (req, res) => {
   logoutUser(req, res);
 
-  res.redirect('/')
+  req.session.save(()=> res.redirect('/'))
 });
 
 /* Demo Log In */

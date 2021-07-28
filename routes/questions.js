@@ -28,12 +28,17 @@ router.get('/:id(\\d+)', asyncHandler(async (req,res) => {
     const questionId = parseInt(req.params.id, 10);
 
     const question = await Question.findByPk(questionId, {
-        include: User
+        include: [ User, Answer, Upvote, Downvote ]
     })
 
-    res.render('question', {question})
+    const answers = await Answer.findAll({
+        where: questionId,
+        include: [ User, Upvote, Downvote ]
+    })
 
-}))
+    res.render('question', { question, answers })
+}));
+
 
 
 
@@ -60,6 +65,53 @@ router.post('/ask', csrfProtection, requireAuth, handleValidationErrors, asyncHa
     }
 }))
 
+router.get('/answers/:id/votes', asyncHandler(async (req, res) => {
+    const answerId = req.params.id;
+
+    const upvotes = await Upvote.findAll({
+        where: answerId
+    })
+
+    const downvotes = await Downvote.findAll({
+        where: answerId
+    })
+
+    return res.json({ upvotes, downvotes })
+}));
+
+router.post('/answers/:id(\\d+)/upvote', asyncHandler(async (req, res) => {
+    console.log(req.body)
+    const { questionId } = req.body;
+    const answerId = req.params.id;
+    const { userId } = req.session.auth;
+
+    // console.log(questionId, answerId, userId)
+
+    // const upvote = await Upvote.create({
+    //     userId,
+    //     answerId,
+    //     questionId
+    // })
+
+    // return res.json({ upvotes, downvotes })
+}));
+
+router.post('/answers/:id(\\d+)/downvote', asyncHandler(async (req, res) => {
+    console.log(req.body)
+    const { questionId } = req.body;
+    const answerId = req.params.id;
+    const { userId } = req.session.auth;
+
+    // console.log(questionId, answerId, userId)
+
+    // const upvote = await Upvote.create({
+    //     userId,
+    //     answerId,
+    //     questionId
+    // })
+
+    // return res.json({ upvotes, downvotes })
+}));
 
 
 module.exports = router;

@@ -4,5 +4,10 @@ html
       block head
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/reset.css')
+        script(src="/javascripts/layout.js" type="module" defer)
+
   body
+    label(for="searchBar") Search for questions 
+    input(type="text" id="searchBar" name="searchBar")
+    button(id="searchButton"): a(href="/search") Search!
     block content
