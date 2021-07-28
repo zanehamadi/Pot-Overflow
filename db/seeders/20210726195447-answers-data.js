@@ -13,7 +13,8 @@ module.exports = {
       }], {});
     */
     return queryInterface.bulkInsert('Answers', [
-      { answer: 'Life be hard sometimes', questionId: 1, userId: 1, createdAt: new Date(), updatedAt: new Date() }
+      { answer: 'Life be hard sometimes', questionId: 1, userId: 1, createdAt: new Date(), updatedAt: new Date() },
+      { answer: 'Life be', questionId: 1, userId: 1, createdAt: new Date(), updatedAt: new Date() }
     ], {});
   },
 
