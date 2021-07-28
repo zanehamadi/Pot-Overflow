@@ -7,7 +7,8 @@ html
         script(src="/javascripts/layout.js" type="module" defer)
 
   body
-    label(for="searchBar") Search for questions 
-    input(type="text" id="searchBar" name="searchBar")
-    button(id="searchButton"): a(href="/search") Search!
+    form(method="post" action="/search")
+      label(for="searchBar") Search for questions 
+      input(type="text" id="searchBar" name="searchBar")
+      button(type="submit" id="searchButton") Search!
     block content

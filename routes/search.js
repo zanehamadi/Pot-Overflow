@@ -1,5 +1,6 @@
 const express = require('express');
 const csrf = require('csurf');
+const { Op } = require('Sequelize');
 
 const { Question, Answer, User, Upvote, Downvote } = require('../db/models');
 const { requireAuth } = require('../auth');
@@ -25,29 +26,36 @@ const csrfProtection = csrf({ cookie: true })
 
 // let id
 
-router.post('/', asyncHandler(async (req,res,next) => {
+router.post('/', asyncHandler(async (req, res, next) => {
+    const { searchBar } = req.body
+    let words = searchBar.split(" ")
+    console.log(words)
 
-    console.log("yo")
-    const ids = req.body
-    const questions = await Question.findAll({
-        where: {
-            id: ids
+    let qArray = []
+    let idArray = []
+
+    for (let i = 0; i < words.length; i++) {
+
+        const questions = await Question.findAll({
+            where: {
+                question: {
+                    [Op.substring]: words[i]
+                }
+            }
+        })
+
+        if (questions[0] && !idArray.includes(questions[0].id)) {
+            idArray.push(questions[0].id)
+            qArray.push(...questions)
         }
-    })
-    console.log(ids)
-
-    res.render('search', {questions})
-
+    }
+    res.render('search', { qArray })
 }))
 
-// router.get('/', asyncHandler(async(req,res,next) => {
+router.get('/', asyncHandler(async (req, res, next) => {
+    // const questions = await Question.findAll()
 
-// }))
-
-router.get('/', asyncHandler(async (req,res,next) => {
-    const questions = await Question.findAll()
-
-    return res.json({questions})
+    // return res.json({ questions })
 
 }))
 
