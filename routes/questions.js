@@ -64,7 +64,7 @@ router.post('/ask', csrfProtection, requireAuth, handleValidationErrors, asyncHa
     }
 }))
 
-router.get('/answers/:id/upvotes', asyncHandler(async (req, res) => {
+router.get('/answers/:id/votes', asyncHandler(async (req, res) => {
     const answerId = req.params.id;
 
     const upvotes = await Upvote.findAll({
@@ -76,6 +76,40 @@ router.get('/answers/:id/upvotes', asyncHandler(async (req, res) => {
     })
 
     return res.json({ upvotes, downvotes })
+}));
+
+router.post('/answers/:id(\\d+)/upvote', asyncHandler(async (req, res) => {
+    console.log(req.body)
+    const { questionId } = req.body;
+    const answerId = req.params.id;
+    const { userId } = req.session.auth;
+
+    // console.log(questionId, answerId, userId)
+
+    // const upvote = await Upvote.create({
+    //     userId,
+    //     answerId,
+    //     questionId
+    // })
+
+    // return res.json({ upvotes, downvotes })
+}));
+
+router.post('/answers/:id(\\d+)/downvote', asyncHandler(async (req, res) => {
+    console.log(req.body)
+    const { questionId } = req.body;
+    const answerId = req.params.id;
+    const { userId } = req.session.auth;
+
+    // console.log(questionId, answerId, userId)
+
+    // const upvote = await Upvote.create({
+    //     userId,
+    //     answerId,
+    //     questionId
+    // })
+
+    // return res.json({ upvotes, downvotes })
 }));
 
 

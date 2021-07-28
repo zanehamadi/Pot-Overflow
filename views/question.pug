@@ -3,16 +3,45 @@ extends layout.pug
 block content
     table
         thead
-            th Question
-            th Additional Info
-            th User
-            th Posted On
+            tr
+                th Question
+                th Additional Info
+                th User
+                th Posted On
+                th Upvotes
+                th Downvotes
 
         tbody
-
-             tr
-                td=question.question
-                td=question.additional_info
-                td=question.User.username
-                td=question.createdAt
+            button(id="questionUp") 🔺
+            button(id="questionDown") 🔻
+            tr
+                td= question.question
+                td= question.additional_info
+                td= question.User.username
+                td= question.createdAt
+                td= question.Upvotes.length
+                td= question.Downvotes.length
+    table
+        thead
+            tr
+                th Answer
+                th By user
+                th Posted On
+                th Upvotes
+                th Downvotes
+        tbody
+            each answer in answers
+                div(class="buttons")
+                    form(method="post" action=`/questions/answers/${answer.id}/upvote`)
+                        input(type="number" name="questionId" style="display: none;" value= question.id)
+                        button(id= `upvote-${answer.id}` class="upvoteButtons") 🔺
+                    form(method="post" action=`/questions/answers/${answer.id}/downvote`)
+                        input(type="number" name="questionId" style="display: none;" value= question.id)
+                        button(id= `downvote-${answer.id}` class="downvoteButtons") 🔻
+                    tr
+                        td= answer.answer
+                        td= answer.User.username
+                        td= answer.createdAt
+                        td= answer.Upvotes.length
+                        td= answer.Downvotes.length
     script(src="/javascripts/question.js")
