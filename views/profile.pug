@@ -1,0 +1,23 @@
+extends layout.pug
+
+block content
+    h1= `Hello, ${user.username}`
+    div
+        h2 Your Questions
+        ul
+            each question in questions
+                li: a(href=`/questions/${question.id}`)= question.question
+    
+    div
+        h2 Your Answers
+        ul
+            each answer in answers
+                li: a(href=`/questions/${answer.Question.id}`)= answer.answer
+    
+    div
+        h2 Your Upvoted Posts
+        ul
+            each upvote in upvotes
+                li: a(href=`/questions/${upvote.Question.id}`)= upvote.Question.question
+
+        

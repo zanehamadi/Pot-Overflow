@@ -1,7 +1,14 @@
 extends layout
 
 block content 
-    p do we get here
-    each question in qArray
-         ul
-            li=question.question
+    table
+        thead
+            th Questions
+            th Posted by 
+        
+        tbody 
+
+            each question in qArray
+                tr
+                    td: a(href=`/questions/${question.id}`)= question.question
+                    td= question.User.username
