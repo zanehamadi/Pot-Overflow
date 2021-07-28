@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const questionsRouter = require('./routes/questions')
 const searchRouter = require('./routes/search')
+const profileRouter = require('./routes/profile-page')
 const csrf = require('csurf');
 const csrfProtection = csrf({ cookie: true })
 const { restoreUser } = require('./auth');
@@ -47,6 +48,7 @@ app.use('/', indexRouter);
 app.use('/search', searchRouter)
 app.use('/users', usersRouter);
 app.use('/questions', questionsRouter);
+app.use('/profile', profileRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

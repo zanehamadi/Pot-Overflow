@@ -41,7 +41,9 @@ router.post('/', asyncHandler(async (req, res, next) => {
                 question: {
                     [Op.substring]: words[i]
                 }
-            }
+            },
+            include: User
+            
         })
 
         if (questions[0] && !idArray.includes(questions[0].id)) {

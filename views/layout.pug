@@ -7,8 +7,28 @@ html
         script(src="/javascripts/layout.js" type="module" defer)
 
   body
-    form(method="post" action="/search")
-      label(for="searchBar") Search for questions 
-      input(type="text" id="searchBar" name="searchBar")
-      button(type="submit" id="searchButton") Search!
+    div
+      nav(id="nav-bar")
+        a(href='/') Home
+        if locals.authenticated
+            form(action="/logout" method="post")
+              button(id="logoutbutton") Log out
+            a(href="/profile"): img(id="logo" src="https://palmbayprep.org/wp-content/uploads/2015/09/user-icon-placeholder.png" width="20px" height="20px")
+            button(id="askQuestionButton"): a(href="/questions/ask") Ask a Question!
+        else
+            button(id="loginButton"): a(href="/login") Log in
+            button(id="registerButton"): a(href="/register") Register
+            form(action="/demo" method="post")
+              button(id="demoButton") Demo
+      
+      button(id="questions-button"): a(href="/questions") All Questions
+
+      form(method="post" action="/search")
+        label(for="searchBar")
+        input(type="text" placeholder="SEARCH HERE" id="searchBar" name="searchBar")
+        button(type="submit" id="searchButton") Search!
+              
+
+
+
     block content
