@@ -1,6 +1,7 @@
 extends layout
 
 block content 
-    each question in questions
+    p do we get here
+    each question in qArray
          ul
-            li=question.username
+            li=question.question

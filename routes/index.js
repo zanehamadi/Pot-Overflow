@@ -94,7 +94,7 @@ router.post('/login', csrfProtection, validateUserLogin, asyncHandler(async (req
 
       if (passwordCheck) {
         loginUser(req, res, user);
-        res.redirect('/');
+        res.redirect('/questions/');
         return;
       }
     }
