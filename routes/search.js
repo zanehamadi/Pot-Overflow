@@ -1,6 +1,6 @@
 const express = require('express');
 const csrf = require('csurf');
-const { Op } = require('Sequelize');
+const { Op } = require('sequelize');
 
 const { Question, Answer, User, Upvote, Downvote } = require('../db/models');
 const { requireAuth } = require('../auth');
