@@ -28,12 +28,13 @@
 .profileLists >* a:hover{
     font-size: 15pt;
     background-color: lavender;
-    font-weight: bolder;
+    font-weight: 1px bolder;
 }
 
 .profileListsSpecific{
     padding-top: 7px;
     padding-bottom: 7px;
+    /* border: solid; */
 }
 
 .profileLists {
@@ -45,7 +46,7 @@
     font-size: 40pt;
     text-align: center;
     padding-bottom: 20px;
-    padding-top: 20px
+    padding-top: 20px;
 }
 
 #userHeader1{

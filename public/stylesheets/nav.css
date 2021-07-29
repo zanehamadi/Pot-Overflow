@@ -7,7 +7,8 @@
     justify-content: space-around;
     position: fixed;
     z-index: 1;
-  }
+}
+
 
 #navContainer {
     margin: 0px;
@@ -20,7 +21,8 @@
     z-index: 1;
     position: fixed;
 
-  }
+}
+
 
 #nav-bar >* .navButton {
     background-color: rgb(238, 236, 236);
@@ -28,7 +30,9 @@
     border-radius: 0px;
     font-weight: 600;
     cursor: pointer;
+    transition: background-color 0.2s linear;
 }
+
 
 #nav-bar >* .navButton {
     background-color: rgb(238, 236, 236);
@@ -37,11 +41,6 @@
     font-weight: 600;
 }
 
-
-#nav-bar >* .navButton:hover{
-    background-color: rgb(153, 219, 241);
-    color: rgb(70, 69, 69)
-}
 
 #searchBar {
     /* border: 1px outset black; */
@@ -52,14 +51,50 @@
     border: none;
 }
 
+
 #searchContainer {
     border: 1px outset black;
 }
+
 
 #nav-bar >* #loginButton {
     background-color: deepskyblue;
     font-weight: 600;
 }
+
+
+#nav-bar > * {
+    font-weight: 600;
+}
+
+
+#nav-bar >* #registerButton{
+    background-color: rgb(146, 221, 246);
+}
+
+
+#nav-bar >* a{
+    font-weight: 600;
+}
+
+
+#nav-bar >* #registerButton:hover{
+    background-color: rgb(99, 207, 243);
+    cursor: pointer;
+}
+
+
+#nav-bar >* #searchButton{
+    background-color: white;
+    width: 75px;
+}
+
+
+#nav-bar >* #logoutbutton {
+    background-color: deepskyblue;
+    font-weight: 600;
+}
+
 
 #nav-bar >* #loginButton:hover {
     background-color: rgb(7, 174, 230);
@@ -68,41 +103,8 @@
 }
 
 
-#nav-bar > * {
-    font-weight: 600;
-}
-
-#nav-bar >* #registerButton{
-    background-color: rgb(146, 221, 246);
-}
-
-#nav-bar >* #registerButton:hover{
-    background-color: rgb(99, 207, 243);
-    cursor: pointer;
-}
-
-#nav-bar >* a{
-    font-weight: 600;
-}
-
-#nav-bar >* #searchButton{
-    background-color: white;
-    width: 75px;
-}
-
-#nav-bar >* #searchButton:hover{
-    /* background-color: rgba(3, 178, 236, 0.945); */
-}
-
-
 #nav-bar >* #demoButton:hover{
     cursor: pointer;
-}
-
-
-#nav-bar >* #logoutbutton {
-    background-color: deepskyblue;
-    font-weight: 600;
 }
 
 #nav-bar >* #logoutbutton:hover {
@@ -112,6 +114,10 @@
 }
 
 
+#nav-bar >* .navButton:hover{
+    background-color: rgb(153, 219, 241);
+    color: rgb(70, 69, 69)
+}
 
 
 
