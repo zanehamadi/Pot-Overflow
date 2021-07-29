@@ -20,5 +20,5 @@ block content
             ul(class="profileLists")
                 each upvote in upvotes
                     li(class="profileListsSpecific"): a(href=`/questions/${upvote.Question.id}`)= upvote.Question.question
-
+    include footer.pug
         
