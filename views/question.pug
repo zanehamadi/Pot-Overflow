@@ -4,15 +4,17 @@ block content
     table(id= question.id)
         thead
             tr
+                th Question Votes
                 th Question
                 th Additional Info
                 th User
                 th Posted On
         tbody
-            .buttons
-                button(id="questionUp") 🔺 #{questionUpvotes.length}
-                button(id="questionDown") 🔻 #{questionDownvotes.length}
             tr
+                td
+                    .buttons
+                        button(id="questionUp") 🔺 #{questionUpvotes.length}
+                        button(id="questionDown") 🔻 #{questionDownvotes.length}
                 td= question.question
                 td= question.additional_info
                 td= question.User.username
@@ -20,7 +22,7 @@ block content
     table
         thead
             tr
-                th Votes
+                th Answer Votes
                 th Answer
                 th By user
                 th Posted On

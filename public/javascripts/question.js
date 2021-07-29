@@ -2,12 +2,10 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     const questionId = document.querySelector('table').id
 
     const upvoteButtons = document.querySelectorAll('.answerUpvoteButtons');
-    console.log(upvoteButtons.length)
     upvoteButtons.forEach(button => {
         button.addEventListener('click', async (event) => {
             event.preventDefault();
             const answerId = event.target.id.split('-')[1];
-            console.log(answerId)
             const downId = parseInt(answerId)
             const downButton = document.getElementById(`downvote-${downId}`)
 
@@ -72,20 +70,21 @@ document.addEventListener("DOMContentLoaded", async (event) => {
         })
 
         const newAnswer = await post.json();
-        console.log(newAnswer.newAnswer.id)
+        const tr = document.createElement('tr');
 
-        tableContainer.innerHTML += `
-            <tr>
+        tr.innerHTML = `
                 <td><div class="buttons">
-                    <button id= upvote-${newAnswer.newAnswer.id} class="answerUpvoteButtons"> 🔺${newAnswer.newAnswer.Upvotes.length} </button>
-                    <button id= downvote-${newAnswer.newAnswer.id} class="answerDownvoteButtons"> 🔻${newAnswer.newAnswer.Downvotes.length} </button>
+                    <button id= upvote-${newAnswer.newAnswer.id} class="answerUpvoteButtons">🔺 ${newAnswer.newAnswer.Upvotes.length}</button>
+                    <button id= downvote-${newAnswer.newAnswer.id} class="answerDownvoteButtons">🔻 ${newAnswer.newAnswer.Downvotes.length}</button>
                     </div>
                 </td>
                 <td>${newAnswer.newAnswer.answer}</td>
                 <td>${newAnswer.newAnswer.User.username}</td>
                 <td>${newAnswer.newAnswer.createdAt}</td>
-            </tr>
             `;
+        tableContainer.appendChild(tr)
+
+
         const newUpvoteButton = document.getElementById(`upvote-${newAnswer.newAnswer.id}`);
         const newDownvoteButton = document.getElementById(`downvote-${newAnswer.newAnswer.id}`);
 
@@ -152,7 +151,6 @@ document.addEventListener("DOMContentLoaded", async (event) => {
         const res = await upvote.json();
 
         upvoteQuestionButton.innerHTML= `🔺 ${res.upvotes.length}`
-        console.log(res.upvotes.length)
         downvoteQuestionButton.innerHTML = `🔻 ${res.downvotes.length}`
     })
 
