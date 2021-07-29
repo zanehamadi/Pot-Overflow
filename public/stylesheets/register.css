@@ -9,7 +9,8 @@
 }
 
 #registrationForm {
-  background-color: lightgrey;
+  background-color: rgb(240, 236, 236);
+  border: 2px solid lightgray;
   border-radius: 25px;
   margin-left: 15vw;
   width: 15vw;
@@ -29,10 +30,10 @@
   border-radius: 5px;
 }
 
-#registrationForm > form > button{
+/* #registrationForm > form > button{
   margin: 5px 0px;
   border-radius: 10px;
-}
+} */
 
 #infobox {
   padding-bottom: 5vh;
@@ -41,4 +42,19 @@
 
 #bulletPoints > div {
   padding-top: 2vh;
+}
+
+#register {
+  position: relative;
+  top: 10px;
+  left: 20px;
+  background-color: white;
+  border: none;
+  border-radius: none;
+  transition: 0.4s ease-in-out;
+}
+
+#register:hover {
+  transition: 0.4s ease-in-out;
+  background-color: deepskyblue;
 }
