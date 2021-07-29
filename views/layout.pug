@@ -9,27 +9,33 @@ html
         script(src="/javascripts/layout.js" type="module" defer)
 
   body
-    div(id="navcontainer")
+    div(id="navContainer")
       nav(id="nav-bar")
         div(id="home")
-          button(id="homeButton"): a(href='/') Home
-          button(id="questions-button"): a(href="/questions") Questions
-        form(method="post" action="/search")
-          label(for="searchBar")
-          input(type="text" placeholder="SEARCH HERE" id="searchBar" name="searchBar")
-          button(type="submit" id="searchButton") Search!
+          button(id="homeButton" class="navButton"): a(href='/') Home
+          button(id="questions-button" class="navButton"): a(href="/questions") Questions
+        div(id="searchContainer")
+          form(method="post" action="/search")
+            label(for="searchBar")
+            input(type="text" placeholder="Search..." id="searchBar" name="searchBar")
+            button(type="submit" id="searchButton" class="navButton") Search
         div(id="login")
           if locals.authenticated
               form(action="/logout" method="post")
-                button(id="logoutbutton") Log out
+                button(id="logoutbutton" class="navButton") Log out
               a(href="/profile"): img(id="logo" src="https://palmbayprep.org/wp-content/uploads/2015/09/user-icon-placeholder.png" width="20px" height="20px")
-              button(id="askQuestionButton"): a(href="/questions/ask") Ask a Question!
+              button(id="askQuestionButton" class="navButton"): a(href="/questions/ask") Ask a Question!
           else
-              button(id="loginButton"): a(href="/login") Log in
-              button(id="registerButton"): a(href="/register") Register
+              button(id="loginButton" class="navButton"): a(href="/login") Log in
+              button(id="registerButton" class="navButton"): a(href="/register") Register
               form(action="/demo" method="post")
+<<<<<<< HEAD
                 button(id="demoButton") Demo
   block content
+=======
+                button(id="demoButton" class="navButton") Demo
+      
+>>>>>>> cba4acf4e78789a8bdbf57bd958607e8d2c7cb95
 
               
 
