@@ -1,3 +1,14 @@
+@import './answer.css';
+@import './ask-question.css';
+@import './footer.css';
+@import './home.css';
+@import './login.css';
+@import './nav.css';
+@import './profile.css';
+@import './questions.css';
+@import './register.css';
+@import './search.css';
+
 h1 {
     color: #555555;
 }
