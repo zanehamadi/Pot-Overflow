@@ -1,14 +1,36 @@
 extends layout
 
-block content 
-    table
-        thead
-            th Questions
-            th Posted by 
-        
-        tbody 
+//- block content
+//-     table.table
+//-         thead.table-head
+//-             th Questions
+//-             th Posted by
 
-            each question in qArray
-                tr
-                    td: a(href=`/questions/${question.id}`)= question.question
-                    td= question.User.username
+//-         tbody.table-body
+
+//-             each question in qArray
+//-                 tr
+//-                     td: .question
+//-                         button: a(href=`/questions/${question.id}`) Visit
+//-                         p= question.question
+//-                     td= question.User.username
+
+block content
+    .container
+        .total
+            h4 Showing #{qArray.length} results
+        table.table
+            thead.table-head
+                th Questions
+                th Posted by
+                th Reviews
+            tbody.table-body
+                each question in qArray
+                    tr
+                        td: a(href=`/questions/${question.id}`)= question.question
+                        td(id="question")= question.User.username
+                        if question.Upvotes.length
+                            td= `${(parseInt(question.Upvotes.length) / parseInt(question.Downvotes.length)) * 100 }%`
+                        else
+                            td No reviews yet
+                        td(id="visit"): a(href=`/questions/${question.id}`)  Visit 
