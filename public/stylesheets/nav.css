@@ -4,7 +4,10 @@
     align-items: center;
     text-align: center;
     width: 100%;
+    height: 100%;
     justify-content: space-around;
+    position: fixed;
+    z-index: 1;
   }
 
 #navContainer {
@@ -15,7 +18,9 @@
     display: flex;
     align-items: center;
     background-color: rgb(238, 236, 236);
-    position: sticky;
+    z-index: 1;
+    position: fixed;
+
   }
 
 #nav-bar >* .navButton {
@@ -23,7 +28,16 @@
     border: 0px outset rgb(238, 236, 236);
     border-radius: 0px;
     font-weight: 600;
+    cursor: pointer;
 }
+
+#nav-bar >* .navButton {
+    background-color: rgb(238, 236, 236);
+    border: 0px outset rgb(238, 236, 236);
+    border-radius: 0px;
+    font-weight: 600;
+}
+
 
 #nav-bar >* .navButton:hover{
     background-color: rgb(153, 219, 241);
@@ -42,6 +56,13 @@
     font-weight: 600;
 }
 
+#nav-bar >* #loginButton:hover {
+    background-color: rgb(7, 174, 230);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
 #nav-bar > * {
     font-weight: 600;
 }
@@ -50,9 +71,44 @@
     background-color: rgb(146, 221, 246);
 }
 
+#nav-bar >* #registerButton:hover{
+    background-color: rgb(99, 207, 243);
+    cursor: pointer;
+}
+
 #nav-bar >* a{
     font-weight: 600;
 }
+
+#nav-bar >* #searchButton{
+    background-color: rgba(0, 191, 255, 0.623);
+    width: 75px;
+}
+
+#nav-bar >* #searchButton:hover{
+    background-color: rgba(3, 178, 236, 0.945);
+    cursor: pointer;
+}
+
+
+#nav-bar >* #demoButton:hover{
+    cursor: pointer;
+}
+
+
+#nav-bar >* #logoutbutton {
+    background-color: deepskyblue;
+    font-weight: 600;
+}
+
+#nav-bar >* #logoutbutton:hover {
+    background-color: rgb(7, 174, 230);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+
 
 
 
