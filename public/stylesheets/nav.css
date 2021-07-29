@@ -42,6 +42,13 @@
     font-weight: 600;
 }
 
+#nav-bar >* #loginButton:hover {
+    background-color: rgb(7, 174, 230);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
 #nav-bar > * {
     font-weight: 600;
 }
@@ -50,9 +57,43 @@
     background-color: rgb(146, 221, 246);
 }
 
+#nav-bar >* #registerButton:hover{
+    background-color: rgb(99, 207, 243);
+    cursor: pointer;
+}
+
 #nav-bar >* a{
     font-weight: 600;
 }
+
+#nav-bar >* #searchButton{
+    background-color: rgba(0, 191, 255, 0.623);
+    width: 75px;
+}
+
+#nav-bar >* #searchButton:hover{
+    background-color: rgba(3, 178, 236, 0.945);
+    cursor: pointer;
+}
+
+
+#nav-bar >* #demoButton:hover{
+    cursor: pointer;
+}
+
+
+#nav-bar >* #logoutbutton {
+    background-color: deepskyblue;
+    font-weight: 600;
+}
+
+#nav-bar >* #logoutbutton:hover {
+    background-color: rgb(7, 174, 230);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
 
 
 
