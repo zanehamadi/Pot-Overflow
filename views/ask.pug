@@ -9,14 +9,15 @@ block content
     //-                 each error in errors
     //-                     li= error
     if(locals.authenticated)
-        form.ask-form(action="/questions/ask" method="POST")
-            input(type="hidden" name="_csrf" value=csrfToken)
+        .new-question
+            form.ask-form(action="/questions/ask" method="POST")
+                input(type="hidden" name="_csrf" value=csrfToken)
 
-            label(for="question") What do you need help with?
-            input(type="text" name="question" required)
+                label(for="question" class="ask-label") What do you need help with?
+                textarea(type="text" name="question" required class="ask-question")
 
-            label(for="additional_info") Additional info
-            input(type="text" name="additional_info")
+                label(for="additional_info" class="ask-label") Additional info?
+                input(type="text" name="additional_info" class="ask-input")
 
-            button Ask
+                button(id= "ask-button") Ask
     include footer.pug
