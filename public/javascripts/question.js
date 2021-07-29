@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
             const downId = parseInt(answerId)
             const downButton = document.getElementById(`downvote-${downId}`)
 
-            const upvote = await fetch(`http://localhost:8080/questions/answers/${answerId}/upvote`, {
+            const upvote = await fetch(`/questions/answers/${answerId}/upvote`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
             const answerId = event.target.id.split('-')[1];
             const upButton = document.getElementById(`upvote-${answerId}`)
 
-            const downvote = await fetch(`http://localhost:8080/questions/answers/${answerId}/downvote`, {
+            const downvote = await fetch(`/questions/answers/${answerId}/downvote`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
         const answer = answerField.value;
 
-        const post = await fetch(`http://localhost:8080/questions/${questionId}/answers`, {
+        const post = await fetch(`/questions/${questionId}/answers`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
             const downId = parseInt(answerId)
             const downButton = document.getElementById(`downvote-${downId}`)
 
-            const upvote = await fetch(`http://localhost:8080/questions/answers/${answerId}/upvote`, {
+            const upvote = await fetch(`/questions/answers/${answerId}/upvote`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
             const answerId = event.target.id.split('-')[1];
             const upButton = document.getElementById(`upvote-${answerId}`)
 
-            const downvote = await fetch(`http://localhost:8080/questions/answers/${answerId}/downvote`, {
+            const downvote = await fetch(`/questions/answers/${answerId}/downvote`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     upvoteQuestionButton.addEventListener('click', async (event) => {
         event.preventDefault();
 
-        const upvote = await fetch(`http://localhost:8080/questions/${questionId}/upvote`, {
+        const upvote = await fetch(`/questions/${questionId}/upvote`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     downvoteQuestionButton.addEventListener('click', async (event) => {
         event.preventDefault();
 
-        const downvote = await fetch(`http://localhost:8080/questions/${questionId}/downvote`, {
+        const downvote = await fetch(`/questions/${questionId}/downvote`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
