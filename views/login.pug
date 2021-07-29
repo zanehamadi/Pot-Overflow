@@ -1,17 +1,27 @@
 extends layout
 
 block content
-    h1= title
-    if errors
-        div(class='alert alert-danger' role='alert')
-            p The following error(s) occurred:
-            ul
-                each error in errors
-                    li= error
-    form(method="post" action="/login")
-        input(type="hidden" name="_csrf" value=csrfToken)
-        label(for="username") Username
-        input(type="text" name="username" required)
-        label(for="password") Password
-        input(type="password" name="password" required)
-        button(id="authenticate") Log In
+    .login-container
+        .info-container
+            if errors
+                .text-container
+                    h2 Error(s):
+                    ul.list
+                        each error in errors
+                            li= error
+            else
+                .text-container
+                    h2 Log in to:
+                    ul.list
+                        li Help your community
+                        li Find solutions in your house
+                        li Vote on helpful answers
+        .login-form-container
+            form(method="post" action="/login").login-form
+                input(type="hidden" name="_csrf" value=csrfToken)
+                label(for="username") Username
+                input(type="text" name="username" required)
+                label(for="password") Password
+                input(type="password" name="password" required)
+                button(id="authenticate") Log In
+    include footer.pug

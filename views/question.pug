@@ -1,6 +1,7 @@
 extends layout.pug
 
 block content
+<<<<<<< HEAD
     div(id="questionDiv")
         table(id= question.id)
             thead
@@ -44,3 +45,47 @@ block content
             textarea(class='question' name='answer' required)
             button(id="post-answer") Post
         script(src="/javascripts/question.js")
+=======
+    table(id= question.id)
+        thead
+            tr
+                th Question Votes
+                th Question
+                th Additional Info
+                th User
+                th Posted On
+        tbody
+            tr
+                td
+                    .buttons
+                        button(id="questionUp") 🔺 #{questionUpvotes.length}
+                        button(id="questionDown") 🔻 #{questionDownvotes.length}
+                td= question.question
+                td= question.additional_info
+                td= question.User.username
+                td= question.createdAt
+    table
+        thead
+            tr
+                th Answer Votes
+                th Answer
+                th By user
+                th Posted On
+        tbody(id="answers")
+            each answer in answers
+                    tr
+                        td
+                            div(class="buttons")
+                                button(id= `upvote-${answer.id}` class="answerUpvoteButtons") 🔺 #{answer.Upvotes.length}
+                                button(id= `downvote-${answer.id}` class="answerDownvoteButtons") 🔻 #{answer.Downvotes.length}
+                        td= answer.answer
+                        td= answer.User.username
+                        td= answer.createdAt
+    form.new-answer
+        input(id="csrf" type="hidden" name="_csrf" value=csrfToken)
+        label(for="answer") Your Answer:
+        textarea(class='question' name='answer' required)
+        button(id="post-answer") Post
+    script(src="/javascripts/question.js")
+    include footer.pug
+>>>>>>> main
