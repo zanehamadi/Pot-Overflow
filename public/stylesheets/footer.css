@@ -3,28 +3,34 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 10vh;
+  height: 12vh;
   background-color: slategray;
   color: white;
   text-align: center;
-  display: inline-block;
   vertical-align: top;
-  /* display: flex; */
 }
 
 #devteam {
-  display: flex;
-  justify-content: space-around;
+  padding-top: 5px;
+  text-align: center;
 }
 
 #names {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  padding-top: 5px;
+  padding-top: 10px;
 }
 
 #icons > a{
   padding: 0px 2px;
+}
+
+.individual {
+  width: 25vw;
+}
+
+#icons {
+  padding-top: 5px;
 }
 
