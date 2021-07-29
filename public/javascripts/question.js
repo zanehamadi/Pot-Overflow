@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
             const res = await upvote.json();
 
-            event.target.innerHTML= `🔺 ${res.upvotes.length}`
-            downButton.innerHTML= `🔻 ${res.downvotes.length}`
+            event.target.innerHTML= `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
+            downButton.innerHTML= `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
     })})
 
     const downvoteButtons = document.querySelectorAll('.answerDownvoteButtons');
@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
             const res = await downvote.json();
 
-            event.target.innerHTML= `🔻 ${res.downvotes.length}`
-            upButton.innerHTML= `🔺 ${res.upvotes.length}`
+            event.target.innerHTML= `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
+            upButton.innerHTML= `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
     })})
 
     const tableContainer = document.getElementById('answers');
@@ -74,8 +74,8 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
         tr.innerHTML = `
                 <td><div class="buttons">
-                    <button id= upvote-${newAnswer.newAnswer.id} class="answerUpvoteButtons">🔺 ${newAnswer.newAnswer.Upvotes.length}</button>
-                    <button id= downvote-${newAnswer.newAnswer.id} class="answerDownvoteButtons">🔻 ${newAnswer.newAnswer.Downvotes.length}</button>
+                    <button id= upvote-${newAnswer.newAnswer.id} class="answerUpvoteButtons"><i class="far fa-thumbs-up fa-lg"></i> ${newAnswer.newAnswer.Upvotes.length}</button>
+                    <button id= downvote-${newAnswer.newAnswer.id} class="answerDownvoteButtons"><i class="far fa-thumbs-down fa-lg"></i> ${newAnswer.newAnswer.Downvotes.length}</button>
                     </div>
                 </td>
                 <td>${newAnswer.newAnswer.answer}</td>
@@ -106,8 +106,8 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
             const res = await upvote.json();
 
-            event.target.innerHTML= `🔺 ${res.upvotes.length}`
-            downButton.innerHTML= `🔻 ${res.downvotes.length}`
+            event.target.innerHTML= `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
+            downButton.innerHTML= `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
         })
 
         newDownvoteButton.addEventListener('click', async (event) => {
@@ -127,8 +127,8 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
             const res = await downvote.json();
 
-            event.target.innerHTML= `🔻 ${res.downvotes.length}`
-            upButton.innerHTML= `🔺 ${res.upvotes.length}`
+            event.target.innerHTML= `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
+            upButton.innerHTML= `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
         })
     })
 
@@ -150,8 +150,8 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
         const res = await upvote.json();
 
-        upvoteQuestionButton.innerHTML= `🔺 ${res.upvotes.length}`
-        downvoteQuestionButton.innerHTML = `🔻 ${res.downvotes.length}`
+        upvoteQuestionButton.innerHTML= `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
+        downvoteQuestionButton.innerHTML = `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
     })
 
     downvoteQuestionButton.addEventListener('click', async (event) => {
@@ -169,8 +169,8 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
         const res = await downvote.json();
 
-        downvoteQuestionButton.innerHTML= `🔻 ${res.downvotes.length}`
-        upvoteQuestionButton.innerHTML = `🔺 ${res.upvotes.length}`
+        downvoteQuestionButton.innerHTML= `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
+        upvoteQuestionButton.innerHTML = `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
     })
 
 });

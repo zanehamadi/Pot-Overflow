@@ -1,0 +1,48 @@
+#questionDiv{
+    padding-top: 10px;
+    position:absolute;
+    top: 10vh;
+    width: 100%;
+    height: 250px;
+    display: grid;
+    grid-template-areas: 'qVotes qTitle qName qDate'
+                         ' . qInfo . .'
+                        ' aVotes aInfo aName aDate';
+}
+
+#questionVotes{
+    grid-area: qVotes;
+}
+
+#questionTitle{
+    grid-area: qTitle
+}
+
+#questionUser{
+    grid-area: qName
+}
+
+#questionInfo{
+    grid-area: qInfo
+}
+
+#questionDate{
+    grid-area: qDate
+}
+
+#answerVotes{
+    grid-area: aVotes
+}
+
+#answerContent{
+    grid-area: aInfo
+}
+
+#answerUser{
+    grid-area: aName
+}
+
+#answerDate{
+    grid-area: aDate
+}
+

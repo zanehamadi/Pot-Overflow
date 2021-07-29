@@ -44,13 +44,9 @@ button {
   height: 25px;
   width: 100px;
   font-size: 12px;
-  background-color: #2a9d8f;
   border-radius: 20px;
 }
 
-button:hover {
-  background-color: #264653;
-}
 
 button > a {
   text-decoration: none;

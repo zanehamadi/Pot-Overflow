@@ -31,6 +31,10 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
         include: [User, Answer],
     })
 
+    const date = new Date(question.createdAt)
+    // Month Day, Year
+    // let dateString = `${date.getMonth()} ${date.getDate()}, ${date.getFullYear()}` 
+
     const questionUpvotes = await Upvote.findAll({
         where: {
             answerId: null,
