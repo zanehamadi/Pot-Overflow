@@ -12,40 +12,42 @@ const csrfProtection = csrf({ cookie: true })
 
 // Render questions route(displays questions)
 
-router.get('/', asyncHandler(async (req,res,next) => {
+router.get('/', asyncHandler(async (req, res, next) => {
     const questions = await Question.findAll({
         include: User
     })
 
-    res.render('questions', {questions})
+    res.render('questions', { questions })
 }))
 
 
 // Render specific question
 
-router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req,res) => {
+router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
 
     const questionId = parseInt(req.params.id, 10);
 
     const question = await Question.findByPk(questionId, {
-        include: [ User, Answer ],
+        include: [User, Answer],
     })
 
     const questionUpvotes = await Upvote.findAll({
         where: {
-            answerId: null
+            answerId: null,
+            questionId
         }
     })
 
     const questionDownvotes = await Downvote.findAll({
         where: {
-            answerId: null
+            answerId: null,
+            questionId
         }
     })
 
     const answers = await Answer.findAll({
         where: { questionId },
-        include: [ User, Upvote, Downvote ]
+        include: [User, Upvote, Downvote]
     })
 
     console.log(answers.length)
@@ -85,7 +87,7 @@ router.post('/ask', csrfProtection, requireAuth, handleValidationErrors, asyncHa
 
 // post new answer to question
 
-router.post('/:id/answers', csrfProtection, requireAuth, handleValidationErrors, asyncHandler( async (req, res) => {
+router.post('/:id/answers', csrfProtection, requireAuth, handleValidationErrors, asyncHandler(async (req, res) => {
     const { answer } = req.body;
     const questionId = req.params.id;
     const { userId } = req.session.auth;
@@ -102,7 +104,7 @@ router.post('/:id/answers', csrfProtection, requireAuth, handleValidationErrors,
         where: {
             id: newId
         },
-        include: [ Upvote, Downvote, User ]
+        include: [Upvote, Downvote, User]
     })
 
     return res.json({ newAnswer })
@@ -111,7 +113,7 @@ router.post('/:id/answers', csrfProtection, requireAuth, handleValidationErrors,
 
 // get all votes up and down
 
-router.get('/:id(\\d+)/votes', asyncHandler( async (req, res) => {
+router.get('/:id(\\d+)/votes', asyncHandler(async (req, res) => {
     const questionId = parseInt(req.params.id);
 
     const upvotes = await Upvote.findAll({
@@ -127,7 +129,7 @@ router.get('/:id(\\d+)/votes', asyncHandler( async (req, res) => {
 
 // add up vote to question
 
-router.post('/:id(\\d+)/upvote', requireAuth, asyncHandler( async (req, res) => {
+router.post('/:id(\\d+)/upvote', requireAuth, asyncHandler(async (req, res) => {
     const { questionId } = req.body;
     const answerId = null;
     const { userId } = req.session.auth;
@@ -149,7 +151,7 @@ router.post('/:id(\\d+)/upvote', requireAuth, asyncHandler( async (req, res) => 
         }
     })
 
-    if(!prevVote && opVote) {
+    if (!prevVote && opVote) {
         const upvote = await Upvote.create({
             userId,
             answerId,
@@ -208,7 +210,7 @@ router.post('/:id(\\d+)/downvote', requireAuth, asyncHandler(async (req, res, ne
         }
     })
 
-    if(!prevVote && opVote) {
+    if (!prevVote && opVote) {
         const downvote = await Downvote.create({
             userId,
             answerId,
@@ -240,7 +242,7 @@ router.post('/:id(\\d+)/downvote', requireAuth, asyncHandler(async (req, res, ne
         }
     })
 
-    return  res.json({ downvotes, upvotes });
+    return res.json({ downvotes, upvotes });
 }));
 
 
@@ -268,7 +270,7 @@ router.post('/answers/:id(\\d+)/upvote', requireAuth, asyncHandler(async (req, r
         }
     })
 
-    if(!prevVote && opVote) {
+    if (!prevVote && opVote) {
         const upvote = await Upvote.create({
             userId,
             answerId,
@@ -281,7 +283,7 @@ router.post('/answers/:id(\\d+)/upvote', requireAuth, asyncHandler(async (req, r
             answerId,
             questionId: parseInt(questionId)
         })
-    }else {
+    } else {
         await prevVote.destroy();
     }
 
@@ -297,7 +299,7 @@ router.post('/answers/:id(\\d+)/upvote', requireAuth, asyncHandler(async (req, r
         }
     })
 
-    return  res.json({ upvotes, downvotes });
+    return res.json({ upvotes, downvotes });
 }));
 
 
@@ -324,7 +326,7 @@ router.post('/answers/:id(\\d+)/downvote', requireAuth, asyncHandler(async (req,
         }
     })
 
-    if(!prevVote && opVote) {
+    if (!prevVote && opVote) {
         const downvote = await Downvote.create({
             userId,
             answerId,
@@ -354,7 +356,7 @@ router.post('/answers/:id(\\d+)/downvote', requireAuth, asyncHandler(async (req,
         }
     })
 
-    return  res.json({ downvotes, upvotes });
+    return res.json({ downvotes, upvotes });
 }));
 
 
