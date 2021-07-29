@@ -1,23 +1,24 @@
 extends layout.pug
 
 block content
-    h1= `Hello, ${user.username}`
-    div
-        h2 Your Questions
-        ul
-            each question in questions
-                li: a(href=`/questions/${question.id}`)= question.question
-    
-    div
-        h2 Your Answers
-        ul
-            each answer in answers
-                li: a(href=`/questions/${answer.Question.id}`)= answer.answer
-    
-    div
-        h2 Your Upvoted Posts
-        ul
-            each upvote in upvotes
-                li: a(href=`/questions/${upvote.Question.id}`)= upvote.Question.question
+    div(id="userProfileContainer")
+        h1(id="userHeader1")= `${user.username}'s Profile Page`
+        div(id="questionContainer")
+            h2(class="profileHeaders") Your Questions
+            ul(class="profileLists")
+                each question in questions
+                    li(class="profileListsSpecific"): a(href=`/questions/${question.id}`)= question.question
+
+        div(id="answerContainer")
+            h2(class="profileHeaders") Your Answers
+            ul(class="profileLists")
+                each answer in answers
+                    li(class="profileListsSpecific"): a(href=`/questions/${answer.Question.id}`)= answer.answer
+
+        div(id="upvoteContainer")
+            h2(class="profileHeaders") Your Upvoted Posts
+            ul(class="profileLists")
+                each upvote in upvotes
+                    li(class="profileListsSpecific"): a(href=`/questions/${upvote.Question.id}`)= upvote.Question.question
 
         
