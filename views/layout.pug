@@ -12,7 +12,7 @@ html
     div(id="navContainer")
       nav(id="nav-bar")
         div(id="home")
-          a(href='/'): button(id="homeButton" class="navButton") Home
+          a(href='/'): button(id="homeButton" class="navButton"): i.fas.fa-home.fa-lg
           a(href="/questions"): button(id="questions-button" class="navButton") Questions
         div(id="searchContainer")
           form(method="post" action="/search")
@@ -23,8 +23,10 @@ html
           if locals.authenticated
               form(action="/logout" method="post")
                 button(id="logoutbutton" class="navButton") Log out
-              a(href="/profile"): img(id="logo" src="https://palmbayprep.org/wp-content/uploads/2015/09/user-icon-placeholder.png" width="20px" height="20px")
+              a(href='/profile'): button(id="logo" class="navButton"): i.fas.fa-user.fa-lg
               a(href="/questions/ask"): button(id="askQuestionButton" class="navButton") Ask a Question!
+
+
           else
               a(href="/login"): button(id="loginButton" class="navButton") Log in
               a(href="/register"): button(id="registerButton" class="navButton") Register
