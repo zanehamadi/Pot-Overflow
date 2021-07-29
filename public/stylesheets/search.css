@@ -25,8 +25,6 @@ body {
 }
 
 .table {
-  /* background-color: gray; */
-  /* font-size: 16px; */
   border-collapse: collapse;
 }
 
@@ -44,11 +42,6 @@ body {
 
 .table > * tr {
   border: 1px solid black;
-  /* border-left: 1px solid black; */
-}
-
-tr > td {
-  overflow: hidden;
 }
 
 #visit > a {
@@ -63,13 +56,12 @@ a {
   text-decoration: none;
 }
 
-td > a {
+.search-td  {
   transition: 0.4s ease-in-out;
 }
 
-td > a:hover {
+.search-td:hover {
   transition: 0.4s ease-in-out;
-  color: teal;
-  font-size: 30px;
+  color: deepskyblue;
+  font-size: 20px;
 }
-
