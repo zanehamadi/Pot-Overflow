@@ -1,0 +1,44 @@
+#registration {
+  position: absolute;
+  top: 10vh;
+  padding-top: 15vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#registrationForm {
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-left: 15vw;
+  width: 15vw;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#registrationForm > form {
+  display: flex;
+  flex-direction: column;
+}
+
+#registrationForm > form > input{
+  margin: 10px 0px;
+  border-radius: 5px;
+}
+
+#registrationForm > form > button{
+  margin: 5px 0px;
+  border-radius: 10px;
+}
+
+#infobox {
+  padding-bottom: 5vh;
+  font-size: 20px;
+}
+
+#bulletPoints > div {
+  padding-top: 2vh;
+}
