@@ -15,7 +15,7 @@ const csrfProtection = csrf({ cookie: true })
 //     console.log("-------------------------------------------------------------------------------------------")
 //     console.log(req.json())
 //     console.log("-------------------------------------------------------------------------------------------")
-//     /*  
+//     /*
 //     Get array of keywords
 //     Search through ALL questions in the questions table
 //     parse through those questions, see if question includes keyword
@@ -42,8 +42,8 @@ router.post('/', asyncHandler(async (req, res, next) => {
                     [Op.substring]: words[i]
                 }
             },
-            include: User
-            
+            include: [ User, Upvote, Downvote ]
+
         })
 
         if (questions[0] && !idArray.includes(questions[0].id)) {
