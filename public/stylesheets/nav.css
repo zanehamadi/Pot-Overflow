@@ -4,6 +4,7 @@
     align-items: center;
     text-align: center;
     width: 100%;
+    height: 100%;
     justify-content: space-around;
     position: fixed;
     z-index: 1;
@@ -27,7 +28,16 @@
     border: 0px outset rgb(238, 236, 236);
     border-radius: 0px;
     font-weight: 600;
+    cursor: pointer;
 }
+
+#nav-bar >* .navButton {
+    background-color: rgb(238, 236, 236);
+    border: 0px outset rgb(238, 236, 236);
+    border-radius: 0px;
+    font-weight: 600;
+}
+
 
 #nav-bar >* .navButton:hover{
     background-color: rgb(153, 219, 241);
