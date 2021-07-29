@@ -44,10 +44,16 @@
 }
 
 #searchBar {
-    border: 1px outset black;
+    /* border: 1px outset black; */
     border-radius: 3px;
     padding-left: 10px;
     background-color: white;
+    outline: none;
+    border: none;
+}
+
+#searchContainer {
+    border: 1px outset black;
 }
 
 #nav-bar >* #loginButton {
@@ -80,13 +86,12 @@
 }
 
 #nav-bar >* #searchButton{
-    background-color: rgba(0, 191, 255, 0.623);
+    background-color: white;
     width: 75px;
 }
 
 #nav-bar >* #searchButton:hover{
-    background-color: rgba(3, 178, 236, 0.945);
-    cursor: pointer;
+    /* background-color: rgba(3, 178, 236, 0.945); */
 }
 
 

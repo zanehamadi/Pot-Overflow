@@ -18,7 +18,7 @@ html
           form(method="post" action="/search")
             label(for="searchBar")
             input(type="text" placeholder="Search..." id="searchBar" name="searchBar")
-            button(type="submit" id="searchButton" class="navButton") Search
+            button(type="submit" id="searchButton" class="navButton"): i.fas.fa-search.fa-lg
         div(id="login")
           if locals.authenticated
               form(action="/logout" method="post")
