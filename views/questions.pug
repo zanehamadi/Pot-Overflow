@@ -8,17 +8,15 @@ block content
             thead.table-head
                 th Questions
                 th Posted by
-                th Reviews
+                th Total Votes
             tbody.table-body
                 each question in questions
                     tr
                         td: a(href=`/questions/${question.id}` class="search-td")= question.question
                         td= question.User.username
-                        if question.Upvotes.length
-                            td= `${(((parseInt(question.Upvotes.length) - parseInt(question.Downvotes.length)) / (parseInt(question.Upvotes.length) + parseInt(question.Downvotes.length))) * 100).toFixed(0) }%`
-                        else if question.Downvotes.length
-                            td= `${(((parseInt(question.Upvotes.length) - parseInt(question.Downvotes.length)) / (parseInt(question.Upvotes.length) + parseInt(question.Downvotes.length))) * 100).toFixed(0) }%`
+                        if question
+                            td= `${parseInt(question.Upvotes.length) - parseInt(question.Downvotes.length)}`
                         else
-                            td No reviews yet
+                            td 0
                         td(id="visit" class="search-td"): a(href=`/questions/${question.id}`)  Visit
     include footer.pug
