@@ -105,3 +105,11 @@ tableContainer.appendChild(tr)
 ```
 
 ## Final Thoughts
+
+* This project presented it's fair share of challenges! 
+* The major highlights would be: 
+    -   implimenting our first search bar, 
+    -   adding answers to our page with DOM manipulation, 
+    -   authentication including a demo user,
+    -   dynamic voting on both questions and answers
+* We were very fortunate to have an excellent team to tackle this project! Communication was always first priority and allowed us to be very efficient. We had completed, except for a few bugs, our entire feature list in less than 24 hours. Any member of this team is worth their weight in GOLD, I can't wait to see what we can accomplish in the future.
