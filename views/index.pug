@@ -6,7 +6,7 @@ append head
 block content
   div(id="homepage")
     div(id="scrollContainer")
-      div(id="slider") Pot Overflow was created for every
+      div(id="slider") Pot Overflow is a place for every
         div(class="carousel")
           div(class="inner")
             div(class="word") executive chef
@@ -14,7 +14,9 @@ block content
             div(class="word") food enthusiast
             div(class="word") executive chef
     .get-started-container
-      button: a(href="/register") Get Started
-      button: a(href="/login") Already have an Account?
+      //- button: a(href="/register") Get Started
+      a(href="/register"): button Get Started
+      a(href="/login"): button Already have an account?
+      //- button: a(href="/login") Already have an Account?
 
   include footer.pug

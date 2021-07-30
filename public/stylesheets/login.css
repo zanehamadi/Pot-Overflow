@@ -26,17 +26,19 @@
 }
 
 .text-container > h2 {
-    font-size: 50px;
+    font-size: 25px;
+    text-align: center;
     padding: 10px;
     padding-bottom: 25px;
     color: black;
+    text-decoration: underline;
 }
 
 .text-container > ul {
-    text-align: end;
+    text-align:center;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 10px;
     padding: 10px;
 }

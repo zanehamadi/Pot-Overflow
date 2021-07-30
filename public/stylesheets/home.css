@@ -82,20 +82,20 @@
   gap: 45px;
 }
 
-.get-started-container > button {
+.get-started-container > a > button{
   height: 100px;
   width: 350px;
   background-color: rgb(92, 166, 227);
   transition: .4s ease-in-out;
 }
 
-.get-started-container > button:hover {
+.get-started-container > a > button:hover {
   transition: .4s ease-in-out;
   background-color: rgb(26, 85, 133);
   transform: translateY(5px)
 }
 
-.get-started-container > button > a {
+.get-started-container > a > button {
   color: white;
   font-size: 25px;
 }
