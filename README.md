@@ -30,7 +30,7 @@ HTML, CSS, JavaScript
 dbdiagram.png![dbdiagram](https://user-images.githubusercontent.com/78773152/127695082-3786bd24-9156-46b1-8641-4dff628a9930.png)
 
 ## Pot Overflow in Action
-Screenshots here
+homepage.png![homepage](https://i.imgur.com/3TEI78d.gif)
 
 ## Implementation Details
 * An important feature of Pot Overflow is the ability for users to search for questions related to their own to look for existing answers, rather than ask a previously asked question again. Upon a form submission, the Pot Overflow API destructures the search request and checks each word in the request against existing questions in the database, rendering and returning matching questions through a Pug template. Sequelize, a promise-based Node.js ORM (object-relational mapping) allows for interaction with the Postgres database using Javascript rather than SQL.
