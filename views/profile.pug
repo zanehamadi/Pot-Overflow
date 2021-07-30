@@ -3,7 +3,7 @@ extends layout.pug
 block content
     div(id="userProfileContainer")
         h1(id="userHeader1")= `${user.username}'s Profile Page`
-        div(id="questionContainer")
+        div(id="questionsContainer")
             h2(class="profileHeaders") Your Questions
             ul(class="profileLists")
                 each question in questions
@@ -21,4 +21,3 @@ block content
                 each upvote in upvotes
                     li(class="profileListsSpecific"): a(href=`/questions/${upvote.Question.id}`)= upvote.Question.question
     include footer.pug
-        

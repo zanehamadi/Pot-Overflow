@@ -2,12 +2,16 @@
     padding-top: 10px;
     position:absolute;
     top: 10vh;
-    width: 100%;
+    left: 10vw;
+    width: 80%;
     height: 250px;
     display: grid;
     grid-template-areas: 'qVotes qTitle qName qDate'
                          ' . qInfo . .'
                         ' aVotes aInfo aName aDate';
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
 #questionVotes{
@@ -46,3 +50,62 @@
     grid-area: aDate
 }
 
+.answer-table {
+    border-bottom: 5px solid black;
+}
+
+tr > th {
+    font-size: 50px;
+    padding-bottom: 15px;
+}
+
+tr > td {
+    font-size: 25px;
+    border-bottom: 1px solid black;
+}
+
+.question-table {
+    border-bottom: 5px solid black;
+}
+
+.new-answer {
+    display: flex;
+    width: 100%;
+    /* min-height: 500px; */
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.new-answer > label {
+    font-size: 25px;
+}
+
+.new-answer > textarea {
+    min-width: 1000px;
+    min-height: 200px;
+    margin-bottom: 50px;
+}
+
+#post-answer {
+    width: 200px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: none;
+    transition: 0.4s ease-in-out;
+    padding: 50px;
+    background-color: deepskyblue;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#post-answer:hover {
+    transition: 0.4s ease-in-out;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    background-color: rgb(9, 130, 171);
+}

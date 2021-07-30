@@ -1,11 +1,15 @@
 #registration {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  top: 10vh;
+  left: 10vw;
+  width: 80%;
+  height: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-image: url("../images/ingredients-498199_1920.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #registrationForm {
@@ -33,17 +37,24 @@
 
 #infoContainer {
   padding-right: 25vw;
+  color: black;
+  background-color: rgba(240, 236, 236);
+  border-radius: 25px;
+  padding: 25px;
+  position: relative;
+  /* right: 150px; */
+  /* margin-right: 50px; */
 }
 
 #infobox {
   padding-bottom: 5vh;
   font-size: 20px;
-  color: lightgray;
+  color: black;
 }
 
 #bulletPoints > div {
   padding-top: 2vh;
-  color: lightgrey;
+  color: black;
 }
 
 #register {

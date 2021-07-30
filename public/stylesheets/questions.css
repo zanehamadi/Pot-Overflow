@@ -14,22 +14,32 @@
   #questionContainer {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 70%;
     position: absolute;
-    /* top: 15vh;
-    left: 10vw; */
+    top: 10vh;
+    /* left: 10vw; */
     background-image: url("../images/pasta-1181189_1920.jpg");
+    background-repeat: no-repeat;
+    overflow-y: scroll;
   }
 
   .total {
-    font-size: 25px;
     padding: 10px;
+  }
+
+  .total > h4 {
+    font-size: 25px;
   }
 
   .table {
     border-collapse: collapse;
     background-color: lightgrey;
+    width: 80%;
+    position: absolute;
+    left: 5vw;
+    top: 10vh;
+    overflow-y: scroll;
   }
 
   .table > * th {
