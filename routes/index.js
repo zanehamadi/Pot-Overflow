@@ -161,7 +161,7 @@ router.post('/demo', asyncHandler(async (req, res) => {
   })
 
   loginUser(req, res, user);
-  res.redirect('/questions/');
+  req.session.save(()=> res.redirect('/questions'))
 }));
 
 module.exports = router;

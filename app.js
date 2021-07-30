@@ -3,18 +3,16 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const { sequelize } = require('./db/models');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+const { restoreUser } = require('./auth');
+const { sequelize } = require('./db/models');
+
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const questionsRouter = require('./routes/questions')
 const searchRouter = require('./routes/search')
 const profileRouter = require('./routes/profile-page')
-const csrf = require('csurf');
-const csrfProtection = csrf({ cookie: true })
-const { restoreUser } = require('./auth');
-
 
 const app = express();
 
@@ -43,10 +41,10 @@ app.use(
 // create Session table if it doesn't already exist
 store.sync();
 
+// routes
 app.use(restoreUser);
 app.use('/', indexRouter);
 app.use('/search', searchRouter)
-app.use('/users', usersRouter);
 app.use('/questions', questionsRouter);
 app.use('/profile', profileRouter)
 
