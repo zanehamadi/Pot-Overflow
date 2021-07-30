@@ -32,9 +32,10 @@ block content
                 each answer in answers
                         tr
                             td
-                                div(class="buttons" id="answerVotes")
-                                    button(id= `upvote-${answer.id}` class="answerUpvoteButtons"): i.far.fa-thumbs-up.fa-lg #{answer.Upvotes.length}
-                                    button(id= `downvote-${answer.id}` class="answerDownvoteButtons"): i.far.fa-thumbs-down.fa-lg #{answer.Downvotes.length}
+                                div(id="answerVotes")
+                                    .buttons
+                                        button(id= `upvote-${answer.id}` class="answerUpvoteButtons"): i.far.fa-thumbs-up.fa-lg #{answer.Upvotes.length}
+                                        button(id= `downvote-${answer.id}` class="answerDownvoteButtons"): i.far.fa-thumbs-down.fa-lg #{answer.Downvotes.length}
                             td(id="answerContent")= answer.answer
                             td(id="answerUser")= `posted by ${answer.User.username} on `
                             td(id="answerDate")= (new Date(answer.createdAt)).toDateString()
