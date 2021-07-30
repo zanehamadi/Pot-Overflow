@@ -81,6 +81,10 @@ button > a {
   visibility: hidden;
 }
 
-button > * {
+button > *{
   pointer-events: none;
+}
+
+button{
+  cursor: pointer;
 }

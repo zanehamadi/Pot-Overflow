@@ -13,10 +13,12 @@ block content
             div(class="word") home cook
             div(class="word") food enthusiast
             div(class="word") executive chef
-    .get-started-container
-      //- button: a(href="/register") Get Started
-      a(href="/register"): button Get Started
-      a(href="/login"): button Already have an account?
-      //- button: a(href="/login") Already have an Account?
+    if !locals.authenticated
+      .get-started-container
+        a(href="/register"): button Get Started
+        a(href="/login"): button Already have an account?
+    else
+      .get-started-container
+        a(href="/profile" class="word") Welcome back, #{user.username} 
 
   include footer.pug
