@@ -14,7 +14,7 @@ const csrfProtection = csrf({ cookie: true })
 
 router.get('/', asyncHandler(async (req, res, next) => {
     const questions = await Question.findAll({
-        include: User
+        include: [ User, Upvote, Downvote ]
     })
 
     res.render('questions', { questions })
@@ -33,7 +33,7 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
 
     const date = new Date(question.createdAt)
     // Month Day, Year
-    // let dateString = `${date.getMonth()} ${date.getDate()}, ${date.getFullYear()}` 
+    // let dateString = `${date.getMonth()} ${date.getDate()}, ${date.getFullYear()}`
 
     const questionUpvotes = await Upvote.findAll({
         where: {

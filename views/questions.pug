@@ -1,14 +1,24 @@
 extends layout.pug
 
 block content
-    table
-        thead
-            th Questions
-            th Posted by
-
-        tbody 
-            each question in questions
-                tr
-                    td: a(href=`/questions/${question.id}`)= question.question
-                    td= question.User.username
+    .container
+        .total
+            h4 Showing #{questions.length} Questions
+        table.table
+            thead.table-head
+                th Questions
+                th Posted by
+                th Reviews
+            tbody.table-body
+                each question in questions
+                    tr
+                        td: a(href=`/questions/${question.id}` class="search-td")= question.question
+                        td= question.User.username
+                        if question.Upvotes.length
+                            td= `${(((parseInt(question.Upvotes.length) - parseInt(question.Downvotes.length)) / (parseInt(question.Upvotes.length) + parseInt(question.Downvotes.length))) * 100).toFixed(0) }%`
+                        else if question.Downvotes.length
+                            td= `${(((parseInt(question.Upvotes.length) - parseInt(question.Downvotes.length)) / (parseInt(question.Upvotes.length) + parseInt(question.Downvotes.length))) * 100).toFixed(0) }%`
+                        else
+                            td No reviews yet
+                        td(id="visit" class="search-td"): a(href=`/questions/${question.id}`)  Visit
     include footer.pug
