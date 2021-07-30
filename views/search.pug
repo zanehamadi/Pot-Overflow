@@ -16,6 +16,8 @@ block content
                         td(id="question")= question.User.username
                         if question.Upvotes.length
                             td= `${(((parseInt(question.Upvotes.length) - parseInt(question.Downvotes.length)) / (parseInt(question.Upvotes.length) + parseInt(question.Downvotes.length))) * 100).toFixed(0) }%`
+                        else if question.Downvotes.length
+                            td= `${(((parseInt(question.Upvotes.length) - parseInt(question.Downvotes.length)) / (parseInt(question.Upvotes.length) + parseInt(question.Downvotes.length))) * 100).toFixed(0) }%`
                         else
                             td No reviews yet
                         td(id="visit" class="search-td"): a(href=`/questions/${question.id}`)  Visit
