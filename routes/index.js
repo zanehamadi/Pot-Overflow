@@ -64,8 +64,6 @@ const validateUserLogin = [
 
 
 router.get('/', asyncHandler(async (req, res, next) => {
-  // const {userId} = req.session.auth
-  // const user = await User.findByPk(userId)
   const user = res.locals.user
   res.render('index', user);
 }));
@@ -137,7 +135,6 @@ router.post('/register', csrfProtection, validateUserRegister, asyncHandler(asyn
     loginUser(req, res, user);
     res.redirect('/');
   } else {
-    console.log('here')
     const errors = validatorErrors.array().map((error) => error.msg);
     res.render('register', {
       user,

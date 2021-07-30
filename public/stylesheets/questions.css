@@ -1,15 +1,8 @@
-/* /question route */
-
-
 * {
     padding: 0;
     margin: 0;
   }
 
-  /* body {
-    width: 100vw;
-    height: 100vw;
-  } */
 
   #questionContainer {
     display: flex;
@@ -18,11 +11,9 @@
     height: 70%;
     position: absolute;
     top: 10vh;
-    /* left: 10vw; */
     background-image: url("../images/pasta-1181189_1920.jpg");
     background-repeat: no-repeat;
     overflow-y: scroll;
-    /* scrollbar-color: linear-gradient(rgba(0, 0, 0, 0), rgba(100, 100, 100, .5), rgba(200, 200, 200, 1)); */
 
   }
 

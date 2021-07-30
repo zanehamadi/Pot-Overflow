@@ -71,7 +71,6 @@ tr > td {
 .new-answer {
     display: flex;
     width: 100%;
-    /* min-height: 500px; */
     justify-content: center;
     align-items: center;
     gap: 25px;
