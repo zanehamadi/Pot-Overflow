@@ -11,14 +11,15 @@
     height: 100vw;
   } */
 
-  .container {
+  #questionContainer {
     display: flex;
     flex-direction: column;
-    width: 80vw;
-    height: 80vh;
+    width: 100%;
+    height: 100%;
     position: absolute;
-    top: 15vh;
-    left: 10vw;
+    /* top: 15vh;
+    left: 10vw; */
+    background-image: url("../images/pasta-1181189_1920.jpg");
   }
 
   .total {
@@ -28,6 +29,7 @@
 
   .table {
     border-collapse: collapse;
+    background-color: lightgrey;
   }
 
   .table > * th {

@@ -85,6 +85,8 @@
 
 
 #nav-bar >* #searchButton{
+    padding-top: 2px;
+    padding-left: 10px;
     background-color: white;
     width: 75px;
 }
