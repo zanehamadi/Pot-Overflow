@@ -7,8 +7,15 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  h1= "Pot Overflow"
-  p Welcome to your Project Skeleton
+  div(id="homepage")
+    div(id="scrollContainer")
+      div(id="slider") Pot Overflow was created for every
+        div(class="carousel")
+          div(class="inner")
+            div(class="word") executive chef
+            div(class="word") home cook 
+            div(class="word") food enthusiast
+            div(class="word") executive chef
 
   include footer.pug
 
