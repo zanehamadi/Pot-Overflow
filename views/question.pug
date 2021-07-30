@@ -2,7 +2,7 @@ extends layout.pug
 
 block content
     div(id="questionDiv")
-        table(id= question.id)
+        table(id= question.id class= "question-table")
             thead
                 tr
                     th Question Votes
@@ -21,7 +21,7 @@ block content
                     td(id="questionInfo")= question.additional_info
                     td(id="questionUser")= `posted by ${question.User.username} on`
                     td(id="questionDate")= (new Date(question.createdAt)).toDateString()
-        table
+        table.answer-table 
             thead
                 tr
                     th Answer Votes

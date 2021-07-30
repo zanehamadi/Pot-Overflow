@@ -8,6 +8,9 @@
   color: white;
   text-align: center;
   vertical-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #devteam {
@@ -22,15 +25,15 @@
   padding-top: 10px;
 }
 
-#icons > a{
-  padding: 0px 2px;
+.icons > a{
+  padding: 0px 5px;
 }
 
 .individual {
   width: 25vw;
+  font-size: 25px;
 }
 
-#icons {
+.icons {
   padding-top: 5px;
 }
-

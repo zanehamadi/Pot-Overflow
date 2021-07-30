@@ -1,13 +1,18 @@
 #homepage {
-  position: absolute; 
-  width: 100%;
+  position: absolute;
+  top: 10vh;
+  left: 10vw;
+  width: 80%;
   background-color: lightgray;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 100%;
-  padding-left: 15vw;
+  height: 70%;
+  padding-left: 5vw;
+  padding-top: 15vh;
   background-image: url("../images/food-2068217_1920.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #slider {
@@ -15,7 +20,7 @@
   display: flex;
   align-items: center;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 50px;
   color: lightgrey;
 }
 
@@ -37,7 +42,7 @@
 }
 
 .inner {
-    animation: scroll 5s ease-in-out infinite;
+    animation: scroll 10s ease-in-out infinite;
 }
 
 .word {
