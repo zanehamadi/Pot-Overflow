@@ -55,6 +55,7 @@
     background-color: rgb(154, 202, 246);
     transition: background-color .2s linear;
 }
+
 #goBackToQuestions:hover{
     background-color: rgb(119, 183, 243);
 }

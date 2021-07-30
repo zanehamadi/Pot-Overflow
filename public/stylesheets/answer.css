@@ -109,3 +109,7 @@ tr > td {
     cursor: pointer;
     background-color: rgb(9, 130, 171);
 }
+
+#questionDiv >* button:hover{
+    cursor: pointer;
+}
