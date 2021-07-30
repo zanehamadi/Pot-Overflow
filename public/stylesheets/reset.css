@@ -80,3 +80,11 @@ button > a {
 *::-webkit-scrollbar-thumb {
   visibility: hidden;
 }
+
+button > *{
+  pointer-events: none;
+}
+
+button{
+  cursor: pointer;
+}
