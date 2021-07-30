@@ -11,7 +11,6 @@ const router = express.Router();
 router.post('/', asyncHandler(async (req, res, next) => {
     const { searchBar } = req.body
     let words = searchBar.split(" ")
-    console.log(words)
 
     let qArray = []
     let idArray = []
@@ -24,7 +23,7 @@ router.post('/', asyncHandler(async (req, res, next) => {
                     [Op.substring]: words[i]
                 }
             },
-            include: [ User, Upvote, Downvote ]
+            include: [User, Upvote, Downvote]
 
         })
 
