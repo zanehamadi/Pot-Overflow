@@ -21,7 +21,7 @@ block content
                     td(id="questionInfo")= question.additional_info
                     td(id="questionUser")= `posted by ${question.User.username} on`
                     td(id="questionDate")= (new Date(question.createdAt)).toDateString()
-        table.answer-table 
+        table.answer-table
             thead
                 tr
                     th Answer Votes
@@ -42,6 +42,6 @@ block content
         form.new-answer
             input(id="csrf" type="hidden" name="_csrf" value=csrfToken)
             label(for="answer") Your Answer:
-            textarea(class='question' name='answer' required)
+            textarea(id="answerField" class='question' name='answer' required)
             button(id="post-answer") Post
         script(src="/javascripts/question.js")

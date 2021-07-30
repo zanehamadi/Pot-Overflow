@@ -7,10 +7,11 @@ block content
                 input(type="hidden" name="_csrf" value=csrfToken)
 
                 label(for="question" class="ask-label") What do you need help with?
-                textarea(type="text" name="question" required class="ask-question")
+                textarea(type="text" name="question" class="ask-question" required)
 
                 label(for="additional_info" class="ask-label") Additional info?
                 input(type="text" name="additional_info" class="ask-input")
 
                 button(id= "ask-button") Ask
+    script(src="/javascripts/text-limits.js" defer)
     include footer.pug
