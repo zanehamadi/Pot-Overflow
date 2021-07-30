@@ -1,0 +1,24 @@
+
+#errorContent{
+    padding-top: 5%;
+    padding-left: 20%;
+}
+
+#errorTitle{
+    padding-bottom: 20px;
+    padding-top: 40px;
+    font-size: 40pt;
+}
+
+#goBackLine{
+    padding-left: 20%;
+    padding-top: 20px;
+    font-size: 25pt;
+}
+
+#errorButtonContainer{
+    padding-left: 23%;
+    padding-top: 5%;
+    display: flexbox;
+    justify-content: space-evenly;
+}

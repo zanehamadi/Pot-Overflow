@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    div(id="errorContent")
+        h1(id="errorTitle") Sorry, we were not able to find the requested page
+        h2(id='goBackLine') Click here to go back
+        div(id='errorButtonContainer')
+            a(href='/'): button(id='goBackToHome' class='errorButtons') Home 
+            a(href='/questions'): button(id='goBackToQuestions' class='errorButtons') Questions 

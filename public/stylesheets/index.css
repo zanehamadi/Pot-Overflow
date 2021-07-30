@@ -8,6 +8,7 @@
 @import './questions.css';
 @import './register.css';
 @import './search.css';
+@import './404error.css';
 
 h1 {
     color: #555555;
