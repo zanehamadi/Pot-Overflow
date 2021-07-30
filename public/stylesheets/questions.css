@@ -1,1 +1,69 @@
 /* /question route */
+
+
+* {
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    width: 100vw;
+    height: 100vw;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: 80vh;
+    position: absolute;
+    top: 15vh;
+    left: 10vw;
+  }
+
+  .total {
+    font-size: 25px;
+    padding: 10px;
+  }
+
+  .table {
+    border-collapse: collapse;
+  }
+
+  .table > * th {
+    font-size: 25px;
+  }
+
+  .table > * th, td {
+    text-align: left;
+    padding: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+  }
+
+  .table > * tr {
+    border: 1px solid black;
+  }
+
+  #visit > a {
+    text-decoration: none;
+  }
+
+  #visit {
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .search-td  {
+    transition: 0.4s ease-in-out;
+  }
+
+  .search-td:hover {
+    transition: 0.4s ease-in-out;
+    color: deepskyblue;
+    font-size: 20px;
+  }

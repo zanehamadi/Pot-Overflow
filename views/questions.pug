@@ -4,10 +4,9 @@ block content
     table
         thead
             th Questions
-            th Posted by 
-        
-        tbody 
+            th Posted by
 
+        tbody 
             each question in questions
                 tr
                     td: a(href=`/questions/${question.id}`)= question.question
