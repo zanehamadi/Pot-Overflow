@@ -1,6 +1,5 @@
 #homepage {
   position: absolute; 
-  /* top: 10vh; */
   width: 100%;
   background-color: lightgray;
   display: flex;
@@ -36,9 +35,11 @@
   margin: 0 auto;
   text-align: center;
 }
+
 .inner {
     animation: scroll 5s ease-in-out infinite;
 }
+
 .word {
   padding-left: 8px;
   font-size: 1.2em;
