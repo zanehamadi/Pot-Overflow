@@ -177,4 +177,11 @@ document.addEventListener("DOMContentLoaded", async (event) => {
         upvoteQuestionButton.innerHTML = `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
     })
 
+    const newAnswer = document.getElementById('answerField');
+
+    newAnswer.addEventListener("input", (event) => {
+        if (event.target.value.length >= 254) {
+            alert('Answers can not be longer than 255 characters')
+        }
+    })
 });
