@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
                     <td>${new Date(newAnswer.newAnswer.createdAt).toDateString()}</td>
                 `;
             tableContainer.appendChild(tr)
+            answerField.value = ''
             const newUpvoteButton = document.getElementById(`upvote-${newAnswer.newAnswer.id}`);
             const newDownvoteButton = document.getElementById(`downvote-${newAnswer.newAnswer.id}`);
 
