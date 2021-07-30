@@ -67,3 +67,16 @@ button > a {
   height: 25px;
   border-radius: 15px;
 }
+
+*::-webkit-scrollbar {
+  width: 0;
+  visibility: hidden;
+}
+
+*::-webkit-scrollbar-track {
+  visibility: hidden;
+}
+
+*::-webkit-scrollbar-thumb {
+  visibility: hidden;
+}
