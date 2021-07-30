@@ -24,6 +24,14 @@ body, header, nav {
   font-weight: normal;
 }
 
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
 h1 {
   font-size: 2rem;
 }
