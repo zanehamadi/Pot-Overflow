@@ -1,0 +1,60 @@
+
+#page-content{
+    position: absolute;
+    top:75px;
+    width: 100%;
+
+}
+
+#errorContent{
+    margin: 5em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+}
+
+#errorTitle{
+    font-size: 40pt;
+    margin-bottom: 1em;
+}
+
+#goBackLine{
+    font-size: 20pt;
+    margin-bottom: 2em;
+}
+
+#errorButtonContainer{
+    display: flex;
+    justify-content: space-around;
+    width: 19.054%;
+}
+
+.errorButtons{
+    border: 1px solid rgb(143, 141, 141);
+    color: black;
+    font-weight: bolder;
+    border-radius: 1px;
+}
+
+.errorButtons:hover{
+    cursor: pointer;
+
+}
+
+#goBackToHome{
+    background-color: rgb(100, 174, 243);
+    transition: background-color .2s linear;
+}
+#goBackToHome:hover{
+    background-color: rgb(55, 153, 245);
+}
+
+#goBackToQuestions{
+    background-color: rgb(154, 202, 246);
+    transition: background-color .2s linear;
+}
+#goBackToQuestions:hover{
+    background-color: rgb(119, 183, 243);
+}

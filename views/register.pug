@@ -3,19 +3,20 @@ extends layout.pug
 block content
     div(id="registration")
         div(id="infoContainer")
-            div(id="infobox") Join the Pot Overflow Community
-            div(id="bulletPoints")
-                div Vote and answer questions
-                div Find your lamb sauce
-                div Get help so you can stop being an idiot sandwich
-        div(id="registrationForm")
-            h1= title
             if errors
                 div(class='alert alert-danger' role='alert')
                     p The following error(s) occurred:
                     ul
                         each error in errors
                             li= error
+            else
+                div(id="infobox") Join the Pot Overflow Community
+                div(id="bulletPoints")
+                    div Vote and answer questions
+                    div Find your lamb sauce
+                    div Get help so you can stop being an idiot sandwich
+        div(id="registrationForm")
+            h1= title
             form(method="post" action="/register")
                 input(type="hidden" name="_csrf" value=csrfToken)
                 label(for="username") Username
@@ -27,4 +28,5 @@ block content
                 label(for="confirm-password") Confirm Password
                 input(type="password" name="confirm-password" required)
                 button(id="register") Register
+                span(id="accountHyperLink"): a(href=`/login`) Already have an account? Click here to log in!
     include footer.pug

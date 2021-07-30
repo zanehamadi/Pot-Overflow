@@ -71,3 +71,14 @@
   transition: 0.4s ease-in-out;
   background-color: deepskyblue;
 }
+
+#accountHyperLink{
+  padding-top: 10%;
+  padding-left: 4%;
+  padding-right: 2%;
+  transition: text-shadow 0.3s linear;
+}
+
+#accountHyperLink:hover{
+  text-shadow: 1px 1px rgb(63, 62, 62)
+}
