@@ -1,5 +1,6 @@
 extends layout
-
+append head
+    link(rel="stylesheet" href='/stylesheets/404error.css')
 block content
     div(id="errorContent")
         h1(id="errorTitle") Sorry, we were not able to find the requested page
