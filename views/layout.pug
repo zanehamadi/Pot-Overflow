@@ -6,8 +6,6 @@ html
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href='/stylesheets/index.css')
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css")
-        script(src="/javascripts/layout.js" type="module" defer)
-
   body
     div(id="navContainer")
       nav(id="nav-bar")
@@ -26,18 +24,9 @@ html
                 button(id="logoutbutton" class="navButton") Log out
               a(href='/profile'): button(id="logo" class="navButton"): i.fas.fa-user.fa-lg
               a(href="/questions/ask"): button(id="askQuestionButton" class="navButton") Ask a Question!
-
-
           else
               a(href="/login"): button(id="loginButton" class="navButton") Log in
               a(href="/register"): button(id="registerButton" class="navButton") Register
               form(action="/demo" method="post")
                 button(id="demoButton" class="navButton") Demo
   block content
-                
-      
-
-              
-
-
-

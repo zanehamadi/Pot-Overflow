@@ -31,10 +31,6 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
         include: [User, Answer],
     })
 
-    const date = new Date(question.createdAt)
-    // Month Day, Year
-    // let dateString = `${date.getMonth()} ${date.getDate()}, ${date.getFullYear()}`
-
     const questionUpvotes = await Upvote.findAll({
         where: {
             answerId: null,
@@ -53,8 +49,6 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
         where: { questionId },
         include: [User, Upvote, Downvote]
     })
-
-    console.log(answers.length)
 
     res.render('question', { question, answers, questionUpvotes, questionDownvotes, csrfToken: req.csrfToken() })
 }));
@@ -111,7 +105,7 @@ router.post('/:id/answers', csrfProtection, requireAuth, handleValidationErrors,
         include: [Upvote, Downvote, User]
     })
 
-    return res.json({ newAnswer })
+    return res.json({ newAnswer, userId })
 }))
 
 
