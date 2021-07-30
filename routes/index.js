@@ -63,12 +63,14 @@ const validateUserLogin = [
 ];
 
 
+router.get('/', asyncHandler(async (req, res, next) => {
+  // const {userId} = req.session.auth
+  // const user = await User.findByPk(userId)
+  const user = res.locals.user
+  res.render('index', user);
+}));
+
 /* Log in */
-router.get('/', (req, res, next) => {
-  res.render('index', { title: 'a/A Express Skeleton Home' });
-});
-
-
 router.get('/login', csrfProtection, (req, res, next) => {
   res.render('login', {
     csrfToken: req.csrfToken(),
