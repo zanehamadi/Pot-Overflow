@@ -14,7 +14,7 @@ const csrfProtection = csrf({ cookie: true })
 
 router.get('/', asyncHandler(async (req, res, next) => {
     const questions = await Question.findAll({
-        include: [ User, Upvote, Downvote ]
+        include: [User, Upvote, Downvote]
     })
 
     res.render('questions', { questions })
