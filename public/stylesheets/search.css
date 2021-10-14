@@ -15,7 +15,7 @@
 }
 
 .total {
-  font-size: 25px;
+  font-size: 20px;
   padding: 10px;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .table > * th {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .table > * th, td {
@@ -56,7 +56,7 @@ a {
 }
 
 .search-td:hover {
-  transition: 0.4s ease-in-out;
-  color: deepskyblue;
-  font-size: 20px;
+  /* transition: 0.4s ease-in-out; */
+  color: darkorange;
+  /* font-size: 20px; */
 }

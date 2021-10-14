@@ -36,7 +36,7 @@
   }
 
   .table > * th {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .table > * th, td {
@@ -68,7 +68,7 @@
   }
 
   .search-td:hover {
-    transition: 0.4s ease-in-out;
+    /* transition: 0.4s ease-in-out; */
     color: deepskyblue;
-    font-size: 20px;
+    /* font-size: 20px; */
   }

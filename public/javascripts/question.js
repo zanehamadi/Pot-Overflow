@@ -21,9 +21,10 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
             const res = await upvote.json();
 
-            event.target.innerHTML= `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
-            downButton.innerHTML= `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
-    })})
+            event.target.innerHTML = `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
+            downButton.innerHTML = `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
+        })
+    })
 
     const downvoteButtons = document.querySelectorAll('.answerDownvoteButtons');
     downvoteButtons.forEach(button => {
@@ -44,9 +45,10 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
             const res = await downvote.json();
 
-            event.target.innerHTML= `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
-            upButton.innerHTML= `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
-    })})
+            event.target.innerHTML = `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
+            upButton.innerHTML = `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
+        })
+    })
 
     const tableContainer = document.getElementById('answers');
     const postAnswer = document.getElementById('post-answer');
@@ -107,8 +109,8 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
                 const res = await upvote.json();
 
-                event.target.innerHTML= `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
-                downButton.innerHTML= `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
+                event.target.innerHTML = `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
+                downButton.innerHTML = `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
             })
 
             newDownvoteButton.addEventListener('click', async (event) => {
@@ -128,8 +130,8 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
                 const res = await downvote.json();
 
-                event.target.innerHTML= `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
-                upButton.innerHTML= `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
+                event.target.innerHTML = `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
+                upButton.innerHTML = `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
             })
         } catch (e) {
             alert('You must be logged in to post an answer');
@@ -155,7 +157,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
         const res = await upvote.json();
 
-        upvoteQuestionButton.innerHTML= `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
+        upvoteQuestionButton.innerHTML = `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
         downvoteQuestionButton.innerHTML = `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
     })
 
@@ -174,7 +176,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
         const res = await downvote.json();
 
-        downvoteQuestionButton.innerHTML= `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
+        downvoteQuestionButton.innerHTML = `<i class="far fa-thumbs-down fa-lg"></i> ${res.downvotes.length}`
         upvoteQuestionButton.innerHTML = `<i class="far fa-thumbs-up fa-lg"></i> ${res.upvotes.length}`
     })
 
