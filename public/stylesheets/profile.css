@@ -23,8 +23,9 @@
 
 .profileLists >* a:hover{
     font-size: 15pt;
-    background-color: lavender;
-    font-weight: 1px bolder;
+    color: darkblue;
+    font-weight: 600;
+    transition: color .3s;
 }
 
 .profileListsSpecific{
