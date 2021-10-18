@@ -30,7 +30,21 @@ HTML, CSS, JavaScript
 dbdiagram.png![dbdiagram](https://user-images.githubusercontent.com/78773152/127695082-3786bd24-9156-46b1-8641-4dff628a9930.png)
 
 ## Pot Overflow in Action
-Screenshots here
+Home Page![homepage](https://i.imgur.com/3TEI78d.gif)
+
+Home Page When Logged In![loggedhomepage](https://i.imgur.com/NIOrxcR.gif)
+
+Questions Page![questions](https://i.imgur.com/J2vf5kk.png)
+
+Specific Question Page ![question](https://i.imgur.com/S6P0yXc.png)
+
+Log In Page ![login](https://i.imgur.com/et1bjTr.jpeg)
+
+Register Page ![register](https://i.imgur.com/IE1K2p5.jpeg)
+
+Key word search ![search](https://i.imgur.com/KIsIAYk.png)
+
+
 
 ## Implementation Details
 * An important feature of Pot Overflow is the ability for users to search for questions related to their own to look for existing answers, rather than ask a previously asked question again. Upon a form submission, the Pot Overflow API destructures the search request and checks each word in the request against existing questions in the database, rendering and returning matching questions through a Pug template. Sequelize, a promise-based Node.js ORM (object-relational mapping) allows for interaction with the Postgres database using Javascript rather than SQL.
@@ -91,3 +105,11 @@ tableContainer.appendChild(tr)
 ```
 
 ## Final Thoughts
+
+* This project presented it's fair share of challenges! 
+* The major highlights would be: 
+    -   implimenting our first search bar, 
+    -   adding answers to our page with DOM manipulation, 
+    -   authentication including a demo user,
+    -   dynamic voting on both questions and answers
+* We were very fortunate to have an excellent team to tackle this project! Communication was always first priority and allowed us to be very efficient. We had completed, except for a few bugs, our entire feature list in less than 24 hours. Any member of this team is worth their weight in GOLD, I can't wait to see what we can accomplish in the future.
