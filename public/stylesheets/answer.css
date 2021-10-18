@@ -70,6 +70,7 @@ tr > td {
 
 .new-answer {
     display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -81,9 +82,9 @@ tr > td {
 }
 
 .new-answer > textarea {
-    min-width: 1000px;
+    width: 80vw;
+    min-width: 200px;
     min-height: 200px;
-    margin-bottom: 50px;
 }
 
 #post-answer {
@@ -102,9 +103,9 @@ tr > td {
 }
 
 #post-answer:hover {
-    transition: 0.4s ease-in-out;
+    /* transition: 0.4s ease-in-out; */
     width: 200px;
-    height: 200px;
+    /* height: 200px; */
     cursor: pointer;
     background-color: rgb(9, 130, 171);
 }
