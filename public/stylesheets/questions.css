@@ -14,7 +14,6 @@
     background-image: url("../images/pasta-1181189_1920.jpg");
     background-repeat: no-repeat;
     overflow-y: scroll;
-
   }
 
   .total {
@@ -51,6 +50,11 @@
     border: 1px solid black;
   }
 
+  tbody > tr:hover {
+    background-color: white;
+    cursor: pointer;
+  }
+
   #visit > a {
     text-decoration: none;
   }
@@ -63,12 +67,4 @@
     text-decoration: none;
   }
 
-  .search-td  {
-    transition: 0.4s ease-in-out;
-  }
 
-  .search-td:hover {
-    transition: 0.4s ease-in-out;
-    color: deepskyblue;
-    font-size: 20px;
-  }
